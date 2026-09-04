@@ -1,0 +1,13 @@
+{
+  "name": "taipei-nov-2026",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.1",
+    "wrangler": "^4.20.0"
+  }
+}

@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>台北 10 天 9 夜 · Anne & Yoc · 2026.11.09–11.18</title>
+<meta name="description" content="台北旅行手册：行程、地图、导航、贴士">
+<meta name="theme-color" content="#FBF7F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧋</text></svg>">
+<style>
+:root{
+  --bg:#FBF7F0; --bg2:#FFFDF8; --card:#FFFFFF;
+  --ink:#2A2622; --ink2:#6E6459; --ink3:#9C9184;
+  --line:#E4DACA; --line2:#F0E8DA;
+  --accent:#BF5236; --accent-soft:#FBEDE7;
+  --warn:#B4761A; --warn-soft:#FCF3E0;
+  --ok:#2E7D5B; --ok-soft:#E9F5EF;
+  --sea:#E9F0F3; --paper:#FBF7F0;
+  --d1:#C0563A; --d2:#C97B2E; --d3:#9E8214; --d4:#4E8C46; --d5:#1F8C86;
+  --d6:#2F72B0; --d7:#5B57B0; --d8:#8E4A9E; --d9:#B94B77; --d10:#5F7180;
+  --shadow:0 1px 2px rgba(60,45,30,.06),0 8px 24px -12px rgba(60,45,30,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14161A; --bg2:#1A1D22; --card:#1C2027;
+    --ink:#E9E4DC; --ink2:#A7A196; --ink3:#7C776F;
+    --line:#2E333C; --line2:#242931;
+    --accent:#EE8567; --accent-soft:#2E211D;
+    --warn:#E0B15C; --warn-soft:#2C2519;
+    --ok:#6FC49B; --ok-soft:#16261F;
+    --sea:#1B2430; --paper:#14161A;
+    --d1:#F08469; --d2:#EFA95C; --d3:#D9BC44; --d4:#79C06E; --d5:#4FC2BA;
+    --d6:#6BAAE8; --d7:#9490EC; --d8:#C77FD6; --d9:#EC84AC; --d10:#9BAEBE;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"PingFang TC","PingFang SC","Noto Sans TC","Noto Sans CJK TC","Microsoft JhengHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:15px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+a{color:inherit}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(1.4) blur(12px);
+  -webkit-backdrop-filter:saturate(1.4) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.bar-in{max-width:820px;margin:0 auto;display:flex;gap:8px;align-items:center;padding:8px 16px;overflow-x:auto;scrollbar-width:none}
+.bar-in::-webkit-scrollbar{display:none}
+.bar-brand{font-weight:700;font-size:13px;letter-spacing:.02em;white-space:nowrap;padding-right:4px;color:var(--ink2)}
+.jump{
+  flex:0 0 auto;font-size:12px;padding:4px 9px;border-radius:999px;
+  border:1px solid var(--line);background:var(--bg2);color:var(--ink2);
+  text-decoration:none;white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+.jump:active{transform:scale(.96)}
+.jump.dot::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);margin-right:5px;vertical-align:1px}
+
+/* ---------- hero / now ---------- */
+header.hero{padding:28px 0 8px}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+h1{font-size:26px;line-height:1.25;margin:6px 0 4px;letter-spacing:-.01em}
+.sub{color:var(--ink2);font-size:14px;margin:0}
+
+.now{
+  margin:18px 0 8px;padding:18px;border-radius:18px;
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.now::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent)}
+.now-h{display:flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700;text-transform:uppercase}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:p 2s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
+.now-title{font-size:19px;font-weight:700;margin:9px 0 2px;line-height:1.35}
+.now-when{font-size:13px;color:var(--ink2)}
+.now-when b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.cd{display:flex;gap:6px;margin-top:14px}
+.cd div{
+  flex:1;text-align:center;padding:10px 4px 8px;border-radius:12px;
+  background:var(--bg);border:1px solid var(--line2);
+}
+.cd span{display:block;font-size:26px;font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.cd small{display:block;font-size:10px;color:var(--ink3);letter-spacing:.1em;margin-top:3px}
+@media(min-width:520px){.cd span{font-size:34px}}
+.tzline{margin-top:10px;font-size:12px;color:var(--ink3);display:flex;flex-wrap:wrap;gap:4px 10px}
+.tzline b{font-weight:600;color:var(--ink2)}
+
+/* ---------- section ---------- */
+section{margin:34px 0}
+h2{font-size:17px;margin:0 0 3px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+h2 .num{font-size:11px;color:var(--ink3);font-weight:600;letter-spacing:.1em}
+.sec-note{color:var(--ink2);font-size:13px;margin:0 0 14px}
+
+/* ---------- map ---------- */
+.mapbox{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px 8px 4px;box-shadow:var(--shadow);overflow:hidden}
+.mapbox svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.lg{
+  font-size:11.5px;padding:4px 9px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg2);color:var(--ink2);
+  display:inline-flex;align-items:center;gap:5px;font-variant-numeric:tabular-nums;
+  -webkit-tap-highlight-color:transparent;
+}
+.lg i{width:9px;height:9px;border-radius:50%;background:var(--c);display:inline-block}
+.lg[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+@media (prefers-color-scheme: dark){.lg[aria-pressed="true"]{color:#14161A}}
+.lg[aria-pressed="true"] i{background:currentColor}
+#mapRoutes g.dim{opacity:.09}
+.mp-lab{font-size:11px;fill:var(--ink2);font-weight:600}
+.mp-lab-s{font-size:10px;fill:var(--ink3)}
+.mp-bed{font-size:13px}
+
+/* ---------- cards ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;box-shadow:var(--shadow);margin-bottom:10px}
+.card-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.card-t{font-weight:700;font-size:15px;line-height:1.4}
+.card-k{font-size:11px;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin-top:9px;font-size:13.5px}
+.kv dt{color:var(--ink3);white-space:nowrap}
+.kv dd{margin:0;color:var(--ink)}
+.kv dd b{font-variant-numeric:tabular-nums}
+.flightrow{display:flex;align-items:center;gap:10px;margin-top:10px}
+.fp{flex:1}
+.fp .code{font-size:22px;font-weight:700;letter-spacing:.02em;line-height:1}
+.fp .tm{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px}
+.fp .pl{font-size:11.5px;color:var(--ink3);margin-top:1px;line-height:1.35}
+.fp.r{text-align:right}
+.fmid{flex:0 0 auto;text-align:center;color:var(--ink3);font-size:10.5px;min-width:64px}
+.fmid .ln{height:1px;background:var(--line);margin:5px 0;position:relative}
+.fmid .ln::after{content:"✈";position:absolute;right:-2px;top:-8px;font-size:11px;color:var(--ink3)}
+
+/* ---------- badges & links ---------- */
+.b{display:inline-block;font-size:10.5px;font-weight:700;padding:1.5px 7px;border-radius:999px;letter-spacing:.03em;vertical-align:1px;white-space:nowrap}
+.b-book{background:var(--accent-soft);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent)}
+.b-ok{background:var(--ok-soft);color:var(--ok);border:1px solid color-mix(in srgb,var(--ok) 30%,transparent)}
+.b-must{background:var(--warn-soft);color:var(--warn);border:1px solid color-mix(in srgb,var(--warn) 32%,transparent)}
+.b-cash{background:var(--bg);color:var(--ink2);border:1px solid var(--line)}
+
+.nav{
+  display:inline-flex;align-items:center;gap:4px;
+  color:var(--accent);text-decoration:none;font-weight:600;
+  border-bottom:1px dashed color-mix(in srgb,var(--accent) 45%,transparent);
+  -webkit-tap-highlight-color:transparent;
+}
+.nav::after{content:"➜";font-size:10px;transform:rotate(-45deg);display:inline-block;opacity:.75}
+.nav:active{opacity:.6}
+.tel{color:var(--ink);text-decoration:none;border-bottom:1px dashed var(--line);font-variant-numeric:tabular-nums}
+
+/* ---------- day ---------- */
+.day{border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden}
+.day-h{display:flex;gap:12px;align-items:flex-start;padding:14px 15px 12px;border-left:4px solid var(--c)}
+.day-n{
+  flex:0 0 auto;width:46px;text-align:center;
+}
+.day-n .dd{font-size:19px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;color:var(--c)}
+.day-n .dw{font-size:10.5px;color:var(--ink3);margin-top:3px}
+.day-n .dn{font-size:9.5px;color:var(--ink3);letter-spacing:.06em;margin-top:2px}
+.day-t{flex:1;min-width:0}
+.day-t h3{margin:0;font-size:15.5px;line-height:1.4;font-weight:700}
+.day-t p{margin:2px 0 0;font-size:12.5px;color:var(--ink2)}
+.day-sleep{margin-top:7px;font-size:12px;color:var(--ink2);display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+
+.routebtns{display:flex;gap:7px;flex-wrap:wrap;padding:0 15px 12px 15px}
+.rb{
+  font-size:12px;padding:6px 11px;border-radius:10px;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg2);color:var(--ink);
+  text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:600;
+  -webkit-tap-highlight-color:transparent;
+}
+.rb.primary{background:var(--c);border-color:var(--c);color:#fff}
+@media (prefers-color-scheme: dark){.rb.primary{color:#14161A}}
+.rb:active{transform:scale(.97)}
+
+.routemap{display:none;padding:0 15px 14px}
+.routemap.open{display:block}
+.strip{
+  border:1px dashed var(--line);border-radius:14px;background:var(--bg);
+  padding:12px 10px;overflow-x:auto;scrollbar-width:thin;
+}
+.strip-in{display:flex;align-items:stretch;gap:0;min-width:min-content}
+.stop{flex:0 0 auto;max-width:112px;text-align:center;padding:0 2px}
+.stop .dot{width:11px;height:11px;border-radius:50%;background:var(--c);margin:6px auto 0;box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 18%,transparent)}
+.stop .nm{font-size:11px;line-height:1.35;margin-top:7px;color:var(--ink);font-weight:600;word-break:break-word}
+.stop .tm{font-size:10px;color:var(--ink3);font-variant-numeric:tabular-nums}
+.link{flex:0 0 auto;width:26px;display:flex;align-items:flex-start;padding-top:11px}
+.link i{display:block;width:100%;height:2px;border-radius:2px;background:repeating-linear-gradient(90deg,var(--c) 0 5px,transparent 5px 9px);opacity:.6}
+
+/* ---------- timeline ---------- */
+ol.tl{list-style:none;margin:0;padding:0 15px 14px}
+ol.tl>li{display:grid;grid-template-columns:52px 1fr;gap:0 11px;position:relative;padding-bottom:14px}
+ol.tl>li:last-child{padding-bottom:4px}
+ol.tl>li::before{
+  content:"";position:absolute;left:66px;top:20px;bottom:-3px;width:1px;
+  background:var(--line);
+}
+ol.tl>li:last-child::before{display:none}
+.t{
+  font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink2);
+  text-align:right;padding-top:1px;letter-spacing:-.01em;
+}
+.t.free{font-weight:600;color:var(--ink3);font-size:11.5px}
+.body{position:relative;padding-left:14px}
+.body::before{
+  content:"";position:absolute;left:-1px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:var(--card);border:2px solid var(--c);
+}
+li.hi .body::before{background:var(--c)}
+.nm2{font-size:14px;line-height:1.5;font-weight:600}
+.nm2 .plain{font-weight:600}
+.meta{font-size:12.5px;color:var(--ink2);line-height:1.6;margin-top:2px}
+.meta em{font-style:normal;color:var(--ink3)}
+.hours{font-size:12px;color:var(--ink3);font-variant-numeric:tabular-nums}
+.tip{
+  margin-top:5px;font-size:12.5px;line-height:1.55;
+  border-left:2px solid var(--line);padding:1px 0 1px 9px;color:var(--ink2);
+}
+.tip.w{border-color:var(--warn);background:var(--warn-soft);border-radius:0 8px 8px 0;padding:5px 9px;color:var(--ink)}
+.tip.g{border-color:var(--ok);background:var(--ok-soft);border-radius:0 8px 8px 0;padding:5px 9px;color:var(--ink)}
+
+/* ---------- lists ---------- */
+.grp{margin-bottom:16px}
+.grp h4{margin:0 0 7px;font-size:13px;color:var(--ink2);letter-spacing:.02em;display:flex;align-items:center;gap:7px}
+.grp h4::after{content:"";flex:1;height:1px;background:var(--line)}
+ul.plain{list-style:none;margin:0;padding:0}
+ul.plain li{
+  position:relative;padding:6px 0 6px 20px;font-size:13.5px;line-height:1.6;
+  border-bottom:1px solid var(--line2);
+}
+ul.plain li:last-child{border-bottom:0}
+ul.plain li::before{content:"";position:absolute;left:5px;top:15px;width:5px;height:5px;border-radius:50%;background:var(--ink3)}
+ul.plain li b{font-weight:700}
+
+table.bt{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+table.bt th,table.bt td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line2);vertical-align:top}
+table.bt th{color:var(--ink3);font-weight:600;font-size:11.5px;letter-spacing:.04em}
+table.bt td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.bt tr.sum td{border-top:2px solid var(--line);border-bottom:0;font-weight:700}
+table.bt td:first-child,table.bt th:first-child{white-space:nowrap;padding-left:0}
+table.bt td:last-child,table.bt th:last-child{font-size:12px;color:var(--ink2);padding-right:0}
+
+.phone-grid{display:grid;grid-template-columns:1fr;gap:0}
+.phone-grid div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--line2);font-size:13.5px}
+.phone-grid div:last-child{border-bottom:0}
+.phone-grid span{color:var(--ink2)}
+
+.quote{
+  background:var(--bg2);border:1px dashed var(--line);border-radius:12px;
+  padding:11px 13px;margin-top:8px;font-size:14.5px;line-height:1.7;
+}
+.quote small{display:block;font-size:11.5px;color:var(--ink3);margin-bottom:4px;letter-spacing:.04em}
+
+footer{margin:40px 0 28px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink3);text-align:center;line-height:1.8}
+
+.totop{
+  position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+  background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(10px);
+  color:var(--ink2);font-size:15px;cursor:pointer;box-shadow:var(--shadow);
+  display:none;align-items:center;justify-content:center;
+}
+.totop.show{display:flex}
+@media print{.bar,.totop,.routebtns{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="bar"><div class="bar-in" id="barIn">
+  <span class="bar-brand">台北 · 10D9N</span>
+</div></nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Taipei · Nov 2026</div>
+  <h1>台北 10 天 9 夜</h1>
+  <p class="sub">Anne &amp; Yoc · 2026 年 11 月 9 日 – 11 月 18 日 · 星宇航空直飞 · 全程捷运与公车</p>
+
+  <div class="now" id="nowCard">
+    <div class="now-h"><span class="pulse"></span><span>此刻关注</span></div>
+    <div class="now-title" id="nowTitle">载入中…</div>
+    <div class="now-when" id="nowWhen"></div>
+    <div class="cd" id="cd">
+      <div><span id="cdD">–</span><small>DAYS 天</small></div>
+      <div><span id="cdH">–</span><small>HRS 时</small></div>
+      <div><span id="cdM">–</span><small>MIN 分</small></div>
+      <div><span id="cdS">–</span><small>SEC 秒</small></div>
+    </div>
+    <div class="tzline" id="tzLine"></div>
+  </div>
+</header>
+
+<section id="map">
+  <h2><span class="num">01</span>行程总览地图</h2>
+  <p class="sec-note">点下面的日期只看那一天的路线。<span style="white-space:nowrap">🛏 = 当晚住哪</span></p>
+  <div class="mapbox">
+    <svg viewBox="0 0 900 690" role="img" aria-label="台北与北海岸行程路线示意图">
+      <defs>
+        <filter id="rough" x="-12%" y="-12%" width="124%" height="124%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="9" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.4" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="rough2" x="-12%" y="-12%" width="124%" height="124%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="3" result="n2"/>
+          <feDisplacementMap in="SourceGraphic" in2="n2" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+
+      <!-- sea -->
+      <path fill="var(--sea)"
+        d="M0,430 C70,420 150,380 215,320 C255,284 258,262 288,238 C340,196 430,120 530,96 C620,74 700,104 762,150 C816,190 852,244 880,318 L900,352 L900,0 L0,0 Z"/>
+      <g filter="url(#rough)" fill="none" stroke="var(--ink3)" stroke-linecap="round" opacity=".55">
+        <path stroke-width="2.4"
+          d="M0,430 C70,420 150,380 215,320 C255,284 258,262 288,238 C340,196 430,120 530,96 C620,74 700,104 762,150 C816,190 852,244 880,318 L900,352"/>
+        <path d="M74,336 q14,-9 28,0" stroke-width="1.4"/>
+        <path d="M150,286 q14,-9 28,0" stroke-width="1.4"/>
+        <path d="M232,196 q14,-9 28,0" stroke-width="1.4"/>
+        <path d="M330,120 q14,-9 28,0" stroke-width="1.4"/>
+        <path d="M486,50 q14,-9 28,0" stroke-width="1.4"/>
+        <path d="M666,44 q14,-9 28,0" stroke-width="1.4"/>
+        <path d="M816,108 q14,-9 28,0" stroke-width="1.4"/>
+        <path d="M858,190 q14,-9 28,0" stroke-width="1.4"/>
+      </g>
+      <text x="46" y="196" class="mp-lab-s" opacity=".8">台 灣 海 峽</text>
+      <text x="726" y="44" class="mp-lab-s" opacity=".8">東 海</text>
+
+      <!-- river -->
+      <g filter="url(#rough2)" fill="none" stroke="#7FA8BE" stroke-width="5" stroke-linecap="round" opacity=".42">
+        <path d="M292,236 C322,308 336,374 322,436 C310,492 372,548 412,610 L430,672"/>
+        <path d="M322,436 C376,450 442,478 502,516 C550,546 582,586 606,640"/>
+      </g>
+      <text x="246" y="286" class="mp-lab-s" opacity=".85" transform="rotate(56 246 286)">淡水河</text>
+      <text x="470" y="500" class="mp-lab-s" opacity=".7" transform="rotate(30 470 500)">新店溪</text>
+
+      <!-- mountains -->
+      <g filter="url(#rough2)" fill="none" stroke="var(--ink3)" stroke-width="2" stroke-linecap="round" opacity=".38">
+        <path d="M398,244 l24,-30 l24,30"/><path d="M440,252 l22,-26 l22,26"/><path d="M484,246 l20,-24 l20,24"/>
+        <path d="M742,282 l22,-27 l22,27"/><path d="M780,300 l20,-24 l20,24"/>
+      </g>
+      <text x="322" y="168" class="mp-lab-s" opacity=".9">陽明山 · 大屯火山群</text>
+      <text x="686" y="400" class="mp-lab-s" opacity=".9">雪山山脈北端</text>
+
+      <!-- day routes -->
+      <g id="mapRoutes" filter="url(#rough)" fill="none" stroke-linecap="round" stroke-linejoin="round"></g>
+
+      <!-- nodes -->
+      <g id="mapNodes"></g>
+    </svg>
+    <div class="legend" id="legend"></div>
+  </div>
+</section>
+
+<section id="booked">
+  <h2><span class="num">02</span>已确认</h2>
+  <p class="sec-note">出票 / 已付 / 已订。时间一律为<b>台北时间</b>（吉隆坡与台北同为 UTC+8，无时差）。</p>
+  <div id="bookedBox"></div>
+</section>
+
+<section id="days">
+  <h2><span class="num">03</span>逐日行程</h2>
+  <p class="sec-note">左边是时间，右边是内容。地点可以点开导航；每天顶部可以展开当日路线，或一键打开全天多点导航。</p>
+  <div id="dayBox"></div>
+</section>
+
+<section id="todo">
+  <h2><span class="num">04</span>待办清单</h2>
+  <p class="sec-note">照顺序办。办完哪一项跟我说，我把它从这里拿掉。</p>
+  <div class="card" id="todoBox"></div>
+</section>
+
+<section id="tips">
+  <h2><span class="num">05</span>实用贴士</h2>
+  <p class="sec-note">出门前扫一遍，路上遇到状况回来翻。</p>
+  <div id="tipBox"></div>
+</section>
+
+<footer>
+  台北 · 2026.11.09 – 11.18 · Anne &amp; Yoc<br>
+  所有时间为台北时间（UTC+8）
+</footer>
+</div>
+
+<button class="totop" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+/* =========================================================
+   Google Maps 导航链接
+   ========================================================= */
+var GQ = function(q){ return encodeURIComponent(q); };
+function navUrl(q){
+  return 'https://www.google.com/maps/dir/?api=1&destination=' + GQ(q) + '&travelmode=transit';
+}
+function multiUrl(list){
+  return 'https://www.google.com/maps/dir/' + list.map(GQ).join('/');
+}
+
+/* =========================================================
+   数据
+   t   时间（台北时间 HH:MM）；free=true 表示是弹性时段不进倒计时
+   q   Google 地图查询字串（有 q 才可点击导航）
+   ========================================================= */
+var HOTEL_A = { name:'Taipei Poshpacker Hotel（女生专属）', q:'Taipei Poshpacker Hotel 台北市中正區重慶南路一段39號',
+                addr:'台北市中正区重庆南路一段 39 号 1F', tel:'+886-2-2375-5555' };
+var HOTEL_B = { name:'Hotel Puri Ximen 西门町普利', q:'Hotel Puri Ximen 台北市萬華區成都路27巷6號',
+                addr:'台北市万华区成都路 27 巷 6 号', tel:'+886-2-2371-8616' };
+var APT2 = { name:'桃园国际机场 第二航厦', q:'桃園國際機場第二航廈', addr:'桃园市大园区航站南路 9 号', tel:'+886-3-398-3341' };
+
+var DAYS = [
+{
+  date:'2026-11-09', dow:'週一', c:'--d1',
+  title:'落地台北 · 机场过夜',
+  sub:'红眼抵达，今晚不进城。目标只有一个：撑到明早的头班机捷。',
+  sleep:{ label:'桃园机场 T2 入境大厅（一楼）', q:APT2.q, warn:true },
+  nodes:['apt'],
+  route:[{n:'桃园机场 T2', q:APT2.q}],
+  items:[
+    {t:'14:10', nc:true, name:'出发前最后检查', meta:'护照效期 ≥ 6 个月 · 线上填好台湾入境登记表（TWAC）并截图 · 回程机票截图备好', icon:'📋'},
+    {t:'17:10', name:'JX726 起飞', q:'Kuala Lumpur International Airport Terminal 1',
+      meta:'吉隆坡 KLIA 第一航厦 → 台北桃园', hi:true, icon:'✈️'},
+    {t:'22:00', name:'抵达 桃园机场 第二航厦', q:APT2.q, hi:true, icon:'🛬',
+      tipw:'登机证上写的是 T2，但航空公司偶尔会调整航厦。<b>出发前一天再确认一次</b>：星宇客服 +886-2-2791-1199。'},
+    {t:'22:10', name:'入境 · 提领行李 · 出关', meta:'马来西亚护照免签停留 30 天。入境审查会问住哪、待几天，把订房截图放手边。'},
+    {t:'23:00', name:'在 T2 一楼入境大厅安顿', q:APT2.q,
+      tipw:'你 Excel 记的那几个躺椅区（3F 可收缩躺椅、A7–A8 的 70 度椅、D5R 躺椅）<b>全在出境管制区内，入境旅客进不去</b>。你们能待的是一楼入境大厅：硬椅子、通宵开灯、有清洁作业。',
+      tipg:'✅ T2 一楼入境层有<b>免费淋浴间，24 小时开放</b>（自备毛巾与盥洗用品）。<br>✅ 一楼有 24 小时便利商店。<br>🧥 冷气很强，外套先从行李里拿出来。<br>🔒 行李上锁、贵重物品贴身、两人轮流守。<br>📵 T2 旅客服务中心 05:30–24:00（03-398-3341），深夜没人。'},
+    {t:'', free:true, name:'尽量睡', meta:'明天是没睡饱的一天，行程已经排成室内、走路五分钟、随时能回房。'}
+  ]
+},
+{
+  date:'2026-11-10', dow:'週二', c:'--d2',
+  title:'台北车站生活圈 · 慢速开机',
+  sub:'全程室内、住处走路五分钟内、下午能补眠。没睡觉的一天只能这样排。',
+  sleep:{ label:HOTEL_A.name, q:HOTEL_A.q },
+  nodes:['apt','tpe','cks','xmd'],
+  route:[
+    {n:'桃园机场 T2', q:APT2.q},{n:'台北车站', q:'台北車站'},{n:'北门邮局', q:'臺北北門郵局'},
+    {n:'台北地下街', q:'台北地下街'},{n:'Poshpacker', q:HOTEL_A.q},
+    {n:'中正纪念堂', q:'中正紀念堂'},{n:'西门町', q:'西門町'}
+  ],
+  items:[
+    {t:'06:04', name:'机场捷运 A13 → A1 台北车站', q:'機場捷運A13機場第二航廈站', hi:true, icon:'🚇',
+      meta:'普通车首班约 06:04（约 55 分钟）；直达车首班约 05:55。<em>班表偶有调整，前一晚在站内看板确认。</em>',
+      tipg:'先在机场买好<b>悠遊卡</b>（便利商店或站内售卖机都有），之后捷运、公车、超商全部靠它。'},
+    {t:'07:10', name:'抵达 A1 台北车站', q:'台北車站'},
+    {t:'07:30', name:'早餐 · 洪瑞珍三明治', q:'洪瑞珍三明治 台北車站', meta:'芋泥肉松口味，大表哥推荐。车站内。'},
+    {t:'08:30', name:'走去 Poshpacker 寄放行李', q:HOTEL_A.q, hi:true,
+      meta:'台北车站 M8 出口步行约 6 分钟。',
+      tipw:'入住时间是 <b>15:00</b>。到柜台先问「可以先寄放行李吗」（Can we leave our luggage here first?），一般都可以。'},
+    {t:'09:00', name:'台北北门邮局 · 一楼风景戳', q:'臺北北門郵局',
+      hours:'週一–週五 08:30–21:00 · 週六 09:00–12:00 · 週日休',
+      meta:'忠孝西路一段 120 号。大厅有 7–8 个风景戳。', badge:'must'},
+    {t:'09:40', name:'邮政博物馆 台北馆 · 免费纪念章', q:'郵政博物館臺北館',
+      hours:'週二–週日 09:00–17:00（16:30 停止入场）· 週一休馆 · 免费',
+      meta:'同一栋楼 2 楼（忠孝西路一段 114 号）。十几个免费纪念章。', badge:'must',
+      tipg:'盖章带一本<b>空白无格线的本子</b>比明信片好用，油墨不会透。台湾很多点的印泥是自助的，先在废纸上试一下再盖。'},
+    {t:'10:40', name:'北门（承恩门）+ 北门广场', q:'臺北北門 承恩門', meta:'清代城门，配后面的高楼很好拍。走出邮局就是。'},
+    {t:'11:10', name:'台北地下街 Y 区 / K 区', q:'台北地下街Y區',
+      meta:'Y 区店铺最全最好逛；K 区新开了不少动漫周边店。跟着地上颜色走不会迷路。',
+      hours:'多数店 11:00–22:00'},
+    {t:'12:15', name:'午餐 · 台铁便当', q:'台鐵便當本舖 台北車站',
+      meta:'台北车站招牌往左走、全家对面。大表哥推荐。'},
+    {t:'13:00', name:'光南大批发 北车店', q:'光南大批發 台北站前店',
+      hours:'约 10:30–22:30',
+      meta:'北车 M8 出口。生活百货大杂烩：文具、零食、3C、二手书与专辑、化妆品、伴手礼——这里买比西门便宜。'},
+    {t:'13:50', name:'垫脚石书店', q:'墊腳石圖書廣場 台北站前店', hours:'约 10:30–22:30', meta:'书籍、文具、影音、设计小物。跟光南同一区。'},
+    {t:'14:20', name:'100 Life 日本百元店', q:'100Life 台北地下街', meta:'地下街内，全店 NT$49。'},
+    {t:'15:00', name:'✅ Poshpacker 入住 → 补眠', q:HOTEL_A.q, hi:true,
+      tipg:'<b>认真睡两个小时。</b>这是整趟唯一能补的时段，不补的话明天日星铸字行的检字会做得很痛苦。'},
+    {t:'17:00', name:'中正纪念堂 + 自由广场', q:'中正紀念堂',
+      hours:'纪念堂主体约 09:00–18:00 · 广场全天开放',
+      meta:'捷运台北车站 → 中正纪念堂站，1 站。黄昏拍照最好看，广场很大很出片。'},
+    {t:'18:15', name:'移动到西门町', q:'西門町', meta:'捷运中正纪念堂 → 西门，或走路约 15 分钟。'},
+    {t:'18:30', name:'阿宗面线', q:'阿宗麵線 西門町',
+      tipw:'⚠️ <b>Anne 菇类过敏</b>：面线汤底可能含香菇，点之前一定要问。手机把下面那句「过敏中文卡」调出来给店员看。'},
+    {t:'19:00', name:'西门红楼 The Red House', q:'西門紅樓',
+      hours:'週二–週四、週日 11:00–21:00 · 週五、週六 11:00–22:00 · <b>週一休馆</b>',
+      meta:'八角＋十字造型的红砖古迹，外观免费，夜拍很好看。'},
+    {t:'19:40', name:'樱桃爷爷 · 车牌冰箱贴', q:'櫻桃爺爺 西門町',
+      meta:'NT$80 一个，买五送一。拿彩虹车牌去彩虹斑马线打卡。'},
+    {t:'20:10', name:'彩虹斑马线', q:'西門町彩虹地景 彩虹斑馬線'},
+    {t:'20:30', name:'文林文具', q:'文林文具行 西門町',
+      meta:'阿宗面线斜对面。明信片只要 NT$15–25；二楼一堆 NT$100–200 的小物（钥匙圈、积木明信片、木质书页灯），角落生物／千与千寻／Chiikawa／Snoopy 联名都找得到。'},
+    {t:'21:15', name:'一脆 鲜奶脆皮甜甜圈', q:'一脆鮮奶脆皮甜甜圈 西門町', meta:'1 个 NT$40 / 4 个 NT$150。糖粉有加奶粉。'},
+    {t:'21:45', name:'回住处 · 早睡', q:HOTEL_A.q},
+    {t:'', free:true, name:'今天週二的雷', meta:'小王煮瓜卤肉饭（华西街）週二公休——已经排到 11/13 了，别今天跑去。'}
+  ]
+},
+{
+  date:'2026-11-11', dow:'週三', c:'--d3',
+  title:'铅字 · 迪化街 · 赤峰街 · 宁夏夜市',
+  sub:'今天是买东西的大日子。日星铸字行只开週三／週五／週六，非今天不可。',
+  sleep:{ label:HOTEL_A.name, q:HOTEL_A.q },
+  nodes:['tpe','ddc','csj'],
+  route:[
+    {n:'日星铸字行', q:'日星鑄字行'},{n:'北门凤李冰', q:'北門鳳李冰'},{n:'迪化街', q:'迪化街'},
+    {n:'赤峰街', q:'赤峰街'},{n:'大稻埕码头', q:'大稻埕碼頭'},{n:'宁夏夜市', q:'寧夏夜市'}
+  ],
+  items:[
+    {t:'08:00', name:'早餐 · 永和豆浆', q:'永和豆漿 西門町', meta:'你和我就像是豆浆油条。'},
+    {t:'09:00', name:'日星铸字行', q:'日星鑄字行', hi:true, badge:'must',
+      hours:'週三・週五 09:00–12:00 / 13:30–18:00 · 週六 09:30–12:00 / 13:30–17:00 · 週日公休',
+      meta:'大同区太原路 97 巷 13 号，台北车站步行约 10 分钟。全台仅存的活版铸字行，可以自己检字、做客制铅字印章。',
+      tipw:'检字＋制章要等，<b>留 60–90 分钟</b>。铅字是金属尖锐物，<b>回程一定要托运，不能放随身行李</b>。'},
+    {t:'10:45', name:'北门凤李冰', q:'北門鳳李冰', meta:'老字号冰店，走回北门方向顺路。'},
+    {t:'11:15', name:'迪化街 · 你好我好', q:'你好我好 迪化街', meta:'原创／原住民手作小物。'},
+    {t:'11:50', name:'迪化街 · 元气毛孩', q:'元氣毛孩 迪化街', meta:'满店猫狗周边，店里养着三只腊肠狗。没养宠物也值得进去看。'},
+    {t:'12:30', name:'午餐 · 大稻埕鲁肉饭', q:'大稻埕魯肉飯',
+      tipw:'⚠️ 卤肉饭的浇头很常放香菇丁。点之前给店员看过敏卡。'},
+    {t:'13:30', name:'捷运 → 中山站（赤峰街）', q:'捷運中山站', meta:'5 号出口步行 3 分钟。'},
+    {t:'14:00', name:'SNAPPP 写真私馆（赤店）', q:'SNAPPP 寫真私館 赤峰街',
+      hours:'14:00–19:00 · <b>週一不营业</b>',
+      meta:'底片相机选物店，有老物、相机、底片，也收冲洗。'},
+    {t:'14:40', name:'赤峰街服饰巡礼', q:'赤峰街',
+      meta:'Irisgarden（中山公园店最大最好逛，上衣 NT$290–650）· Muura（巷内那间大很多，上衣 NT$350–800，版型好）· Weaver（韩系休闲，NT$250–790）· Wooplanet 行星南西门市 · tonya · Laura（免费搭配，NT$990–1800）· CHIC A SPACE（air space 轻奢线，上衣 NT$600–700+）· Fashionjump · UR Living · 台北您好百货（古著）',
+      tipw:'赤峰街<b>很多店 14:00 才开门</b>，早上来会扑空——所以今天上午排的是迪化街。'},
+    {t:'16:15', name:'下午茶 · tartclub 蛋挞俱乐部', q:'tartclub 蛋撻俱樂部 赤峰街',
+      meta:'一颗 NT$60。或改去米朗琪咖啡馆（松饼）、面线町、bog tea house 卜卜商店。'},
+    {t:'17:00', name:'大稻埕码头 · 货柜市集', q:'大稻埕碼頭貨櫃市集', hi:true,
+      meta:'<b>日落约 17:15。</b>货柜二楼看黄昏河景最美，但位子很难找、常客满——提早 20 分钟上去卡位。',
+      tipw:'网友评价：货柜市集的东西偏贵也没什么特色。<b>来看夕阳跟河边走走就好，吃留给宁夏夜市。</b>'},
+    {t:'18:30', name:'宁夏夜市', q:'寧夏夜市', hi:true, hours:'约 17:00 起',
+      tipw:'⚠️ 夜市摊贩很难沟通过敏细节。Anne 优先挑<b>看得见食材</b>的（烤物、炸物、水果、豆花），避开羹汤、卤味汤汁、油饭。'},
+    {t:'21:00', name:'回住处', q:HOTEL_A.q}
+  ]
+},
+{
+  date:'2026-11-12', dow:'週四', c:'--d4',
+  title:'KLOOK · 北投 + 阳明山芒草',
+  sub:'排平日是刻意的：仰德大道每逢週末与连假 8:00–15:00 上山管制、14:00–18:00 下山管制。',
+  sleep:{ label:HOTEL_A.name, q:HOTEL_A.q },
+  nodes:['tpe','btu','ymt','hs'],
+  route:[
+    {n:'北投图书馆', q:'臺北市立圖書館北投分館'},{n:'北投温泉博物馆', q:'北投溫泉博物館'},
+    {n:'地热谷', q:'地熱谷'},{n:'阳明山花钟', q:'陽明山花鐘'},{n:'竹子湖', q:'竹子湖'},
+    {n:'小油坑', q:'小油坑遊憩區'},{n:'擎天岗', q:'擎天崗草原'},{n:'冷水坑', q:'冷水坑遊客服務站'},
+    {n:'华山1914', q:'華山1914文化創意產業園區'}
+  ],
+  items:[
+    {t:'07:30', name:'早餐 + 出发准备',
+      tipg:'山上比市区低 5–8°C，擎天岗风非常大。<b>带薄外套或风衣、好走的鞋、雨具</b>。地热谷有硫磺蒸气——<b>银饰会变黑，先摘下来</b>。'},
+    {t:'08:30', name:'🚐 KLOOK 团出发', badge:'booked', hi:true,
+      meta:'集合点与联络方式以 KLOOK 行前通知为准。<b>凭证请先截图存到手机相簿</b>，山上讯号不稳。'},
+    {t:'09:10', name:'台北市立图书馆 北投分馆', q:'臺北市立圖書館北投分館',
+      meta:'停留 10 分钟。全木造绿建筑，外观很好拍。', hours:'⚠️ 週一休馆（今天週四，正常开放）'},
+    {t:'09:30', name:'北投温泉博物馆', q:'北投溫泉博物館',
+      meta:'停留 30 分钟。免费。', hours:'⚠️ 週一休馆（今天週四，正常开放）'},
+    {t:'10:10', name:'地热谷', q:'地熱谷', meta:'停留 40 分钟。青磺泉，蒸气很浓。', hours:'⚠️ 週一休馆（今天週四，正常开放）'},
+    {t:'11:30', name:'阳明山花钟', q:'陽明山花鐘', meta:'停留 20 分钟。'},
+    {t:'12:40', name:'午餐 · 竹子湖', q:'竹子湖',
+      tipw:'⚠️ 山产店几乎每道都有香菇（山药鸡汤、野菜、油饭）。<b>点菜前先把过敏卡拿给店家看</b>，请他们整桌不要放菇。'},
+    {t:'14:00', name:'小油坑游憩区', q:'小油坑遊憩區', meta:'停留 30 分钟。硫磺喷气孔，不要越过步道栏杆。'},
+    {t:'14:40', name:'擎天岗草原 · 芒草主场', q:'擎天崗草原', hi:true,
+      meta:'停留 40 分钟。芒草季约 10 月中到 12 月，这里是最开阔的一片。',
+      tipw:'草原上有<b>放牧的牛</b>，官方规定保持 5 公尺以上、不要挡路不要拍打。风大，帽子会飞。'},
+    {t:'15:50', name:'冷水坑游客服务站', q:'冷水坑遊客服務站', meta:'停留 30 分钟。牛奶湖、免费泡脚池。'},
+    {t:'17:10', name:'🚐 返回市区', meta:'下车点以行前通知为准。'},
+    {t:'18:15', name:'华山 1914 文创园区', q:'華山1914文化創意產業園區',
+      meta:'捷运忠孝新生站 1 号出口步行 3 分钟。旧酒厂改造，晚上有灯、店与餐厅都还开着。'},
+    {t:'19:30', name:'晚餐 · 华山／忠孝新生一带', q:'華山1914文化創意產業園區'},
+    {t:'21:00', name:'回住处', q:HOTEL_A.q}
+  ]
+},
+{
+  date:'2026-11-13', dow:'週五', c:'--d5',
+  title:'搬家日 · 西门町全天 · 龙山寺 · 华西街',
+  sub:'今天要换旅馆，所以全部安排都压在住处周边，走路就到。',
+  sleep:{ label:HOTEL_B.name, q:HOTEL_B.q, move:true },
+  nodes:['tpe','xmd'],
+  route:[
+    {n:'Poshpacker', q:HOTEL_A.q},{n:'Hotel Puri Ximen', q:HOTEL_B.q},{n:'佳佳唱片行', q:'佳佳唱片行中華店'},
+    {n:'久大文具', q:'久大文具 西門町'},{n:'西门红楼', q:'西門紅樓'},{n:'龙山寺', q:'艋舺龍山寺'},{n:'华西街夜市', q:'華西街觀光夜市'}
+  ],
+  items:[
+    {t:'08:00', name:'早餐 · 天天利美食坊', q:'天天利美食坊 西門町', meta:'卤肉饭＋煎蛋。人很多，要早去。'},
+    {t:'09:30', name:'回 Poshpacker 收行李', q:HOTEL_A.q},
+    {t:'11:00', name:'⏰ Poshpacker 退房', q:HOTEL_A.q, hi:true, meta:'退房时限 11:00 前。'},
+    {t:'11:20', name:'搬到 Hotel Puri Ximen · 寄放行李', q:HOTEL_B.q, hi:true,
+      meta:'重庆南路一段 39 号 → 成都路 27 巷 6 号，步行约 15 分钟；或捷运台北车站 → 西门，1 站。',
+      tipw:'新旅馆入住是 <b>15:00</b>，先寄行李再出门。'},
+    {t:'11:50', name:'佳佳唱片行 中华店', q:'佳佳唱片行中華店', badge:'must',
+      hours:'约 10:30–21:30',
+      meta:'中华路一段 110 号 2、3 楼，西门站 6 号出口。华语流行最多，也有 K-pop／J-pop／欧美，折扣品比网上便宜。'},
+    {t:'12:50', name:'午餐 · 台湾麦当劳 或 师园盐酥鸡', q:'西門町',
+      meta:'麦当劳推荐 double McChicken 与 signature 套餐，NT$90–140。'},
+    {t:'13:40', name:'久大文具连锁 西门町店', q:'久大文具 西門町',
+      hours:'週一–週五 11:00–22:30 · 週六日 10:30–22:30',
+      meta:'旅馆附近，本地学生党在逛的文具店，价格便宜。'},
+    {t:'14:20', name:'诚品书店 西门店', q:'誠品書店 西門店', meta:'这里可以买到 Nici 的限定系列。'},
+    {t:'15:00', name:'✅ Hotel Puri Ximen 入住', q:HOTEL_B.q, hi:true},
+    {t:'15:45', name:'Uniqlo 西门店 · UT 现场印图', q:'UNIQLO 西門店',
+      meta:'可以自己设计、选西门町限定图案，NT$590 一件，15–20 分钟印好。'},
+    {t:'16:45', name:'西门红楼', q:'西門紅樓',
+      hours:'週五 11:00–22:00 · <b>週一休馆</b>', meta:'今天週五，白天晚上都开。'},
+    {t:'17:30', name:'艋舺龙山寺', q:'艋舺龍山寺', hi:true,
+      hours:'约 06:00–22:00',
+      meta:'西门町步行 10–15 分钟，或捷运 1 站。台北最出名的庙，傍晚点灯后很好拍。',
+      tipg:'参拜从<b>右边的龙门进、左边的虎门出</b>，不要走中间的门。庙里免费供香。拍照避开正在祭拜的人。'},
+    {t:'18:30', name:'华西街观光夜市 + 广州街夜市', q:'華西街觀光夜市', hours:'约 16:00–24:00'},
+    {t:'19:00', name:'小王煮瓜（小王清汤瓜仔肉）', q:'小王煮瓜 華西街', hi:true,
+      hours:'<b>週二公休</b>（今天週五，有开）',
+      meta:'米其林必比登的卤肉饭，就在华西街夜市里。'},
+    {t:'20:30', name:'回西门町补货', q:'西門町', meta:'樱桃爷爷、文林文具二楼、光南（走回北车也行）。'}
+  ]
+},
+{
+  date:'2026-11-14', dow:'週六', c:'--d6',
+  title:'松山文创 · 东区 · CCD · 象山日落 · 101',
+  sub:'今天要把底片送去冲洗，11/17 回来取——这是唯一来得及的窗口。',
+  sleep:{ label:HOTEL_B.name, q:HOTEL_B.q },
+  nodes:['xmd','sys','dan','xy'],
+  route:[
+    {n:'松山文创园区', q:'松山文創園區'},{n:'诚品生活松烟', q:'誠品生活松菸店'},
+    {n:'台冲（送底片）', q:'台沖 台灣沖印網 台北市大安區仁愛路三段143巷46號'},
+    {n:'东区地下街', q:'東區地下街'},{n:'Pick My CCD', q:'Pick My CCD 台北市大安區忠孝東路四段97號'},
+    {n:'象山步道', q:'象山親山步道'},{n:'台北101', q:'台北101'}
+  ],
+  items:[
+    {t:'08:30', name:'早餐 · 西门町', q:'西門町'},
+    {t:'09:40', name:'捷运 → 国父纪念馆站', q:'捷運國父紀念館站'},
+    {t:'10:00', name:'松山文创园区', q:'松山文創園區',
+      meta:'旧松山菸厂改造。文创店、展览馆、生态池。园区户外全天开放，店家多为 11:00–20:00。'},
+    {t:'11:15', name:'诚品生活松烟', q:'誠品生活松菸店',
+      meta:'买：特典冰箱贴、台啤小酒杯、手帕、袜子、明信片。'},
+    {t:'12:15', name:'午餐 · 松烟／东区', q:'松山文創園區'},
+    {t:'13:15', name:'🎞 台冲（台灣沖印網）· 送底片', q:'台沖 台灣沖印網 台北市大安區仁愛路三段143巷46號', hi:true, badge:'book',
+      hours:'週一–週五 11:00–20:00 · <b>週六 12:00–17:00</b>',
+      meta:'大安区仁爱路三段 143 巷 46 号，捷运忠孝復兴站 2 号出口。冲扫 NT$80／卷。电话 02-2731-9087。',
+      tipw:'送件时<b>一定要当场问「11/17（週二）能不能取件」</b>，并要求<b>数位扫描档</b>（云端连结或存 USB）。<br>11/18 早上七点你们就出门了，<b>底片没洗好就带不走</b>。如果店家说来不及，当场改成只冲不扫、或换别家。'},
+    {t:'14:00', name:'台灣人ㄟ脆皮鲜奶甜甜圈 忠孝店', q:'台灣人ㄟ脆皮鮮奶甜甜圈 忠孝店',
+      hours:'约 11:00–19:00', meta:'台湾网友说比西门町那家好吃。NT$25 一个，6 个 NT$150。'},
+    {t:'14:25', name:'Stüssy Taipei', q:'Stussy Taipei', meta:'台北限定 hoodie 与 T-shirt（Tee 约 NT$1,980）。'},
+    {t:'14:50', name:'东区地下街 + 忠孝商圈', q:'東區地下街', meta:'小店多、潮流服饰、年轻风格。'},
+    {t:'15:20', name:'Pick My CCD · 复古大头贴', q:'Pick My CCD 台北市大安區忠孝東路四段97號', hi:true, badge:'must',
+      hours:'平日 15:00–21:00 · <b>週末 13:00–21:00</b>',
+      meta:'大安区忠孝东路四段 97 号，顶好名品城 3 楼；捷运忠孝敦化站 8 号出口步行 3 分钟。可以自己 DIY 前景背景和排版，还原 80／90 年代大头贴。'},
+    {t:'16:15', name:'捷运 → 象山站', q:'捷運象山站', meta:'2 号出口。'},
+    {t:'16:45', name:'象山亲山步道 · 六巨石', q:'象山親山步道 六巨石', hi:true,
+      meta:'<b>日落约 17:12。</b>爬上去 20–30 分钟，全程石阶。免费、24 小时开放。',
+      tipw:'穿好走的鞋，<b>手机手电筒要能用</b>——下山时天已经黑了。週末很多人抢机位，早点上去。'},
+    {t:'18:15', name:'下山 → 台北 101', q:'台北101',
+      meta:'免费拍照点：4 楼都会广场、市府路人行道、信义威秀前广场、松智路口。不用买观景台票也拍得到。'},
+    {t:'19:30', name:'晚餐 · 信义区', q:'台北101'},
+    {t:'21:00', name:'回西门町', q:HOTEL_B.q}
+  ]
+},
+{
+  date:'2026-11-15', dow:'週日', c:'--d7',
+  title:'故宫 · 士林 · 士林夜市',
+  sub:'故宫週一休馆，只能排非週一。九点开门就到，避开旅行团。',
+  sleep:{ label:HOTEL_B.name, q:HOTEL_B.q },
+  nodes:['xmd','npm'],
+  route:[
+    {n:'捷运士林站', q:'捷運士林站'},{n:'国立故宫博物院', q:'國立故宮博物院'},
+    {n:'士林官邸', q:'士林官邸'},{n:'士林夜市', q:'士林夜市'}
+  ],
+  items:[
+    {t:'07:50', name:'早餐 · 西门町', q:'西門町'},
+    {t:'08:30', name:'捷运 → 士林站，转红 30 公车', q:'捷運士林站', hi:true,
+      meta:'士林站 1 号出口转 <b>红 30 / R30</b>，直接开到正馆门口，不用爬那段大阶梯。'},
+    {t:'09:00', name:'国立故宫博物院', q:'國立故宮博物院', hi:true, badge:'must',
+      hours:'週二–週日 09:00–17:00（16:30 停止售票）· <b>週一休馆</b> · 全票 NT$350',
+      meta:'至善路二段 221 号。',
+      tipg:'✅ <b>一定要现场买纸本票</b>：现场纸票可以当日多次进出，背面还印随机文物图案（等于小卡）。线上或第三方平台买没有纸本，而且很可能只能进一次。<br>✅ 每天有<b>免费定时导览</b>（中文场、英文场各数场），可上官网预约，中文场较难约；现场也可以碰运气。<br>✅ 大件行李、雨伞、水瓶要寄物；馆内展厅禁止拍照的区域会标示。'},
+    {t:'12:30', name:'午餐 · 故宫周边或回士林', q:'士林'},
+    {t:'13:45', name:'士林官邸公园', q:'士林官邸', meta:'免费。玫瑰园与温室，走走拍照。'},
+    {t:'15:30', name:'回旅馆休息 / 弹性时段', q:HOTEL_B.q, free:true,
+      meta:'今天是行程中段，安排得比较松——累的话就回去躺，不累的话可以把赤峰街或西门没逛完的补掉。'},
+    {t:'17:30', name:'士林夜市', q:'士林夜市', hi:true, hours:'约 16:00 起，越晚越热闹',
+      meta:'大南路那一带 + 士林市场地下美食区。',
+      tipw:'⚠️ 士林夜市观光客价偏高、也有拉客宰客的摊。<b>看清楚标价再点</b>，尤其是海鲜与现切水果。'},
+    {t:'20:40', name:'回西门', q:HOTEL_B.q},
+    {t:'', free:true, name:'今天週日的雷', meta:'北门邮局週日公休（已在 11/10 完成 ✓）。SNAPPP 赤店 週日有开但 14:00 才开门。'}
+  ]
+},
+{
+  date:'2026-11-16', dow:'週一', c:'--d8',
+  title:'KLOOK · 跳石 + 野柳 + 十分 + 九份',
+  sub:'把出城的团排在週一是刻意的——市区週一大量店休，今天出去最划算。',
+  sleep:{ label:HOTEL_B.name, q:HOTEL_B.q },
+  nodes:['xmd','tsh','yl','sf','jf'],
+  route:[
+    {n:'跳石海岸', q:'跳石海岸'},{n:'野柳地质公园', q:'野柳地質公園'},{n:'十分老街', q:'十分老街'},
+    {n:'黄金瀑布', q:'黃金瀑布'},{n:'阴阳海', q:'陰陽海'},{n:'九份老街', q:'九份老街'}
+  ],
+  items:[
+    {t:'08:30', name:'早餐吃饱', meta:'团上到 12:20 才有像样的停留，中间没什么正餐时间。带水和小零食。'},
+    {t:'10:00', name:'🚐 KLOOK 团出发', badge:'booked', hi:true,
+      meta:'集合点与联络方式以 KLOOK 行前通知为准，凭证先截图。',
+      tipg:'今天会走海边跟山上，<b>带轻便雨衣</b>（九份很常突然下雨，撑伞在窄巷里不方便）、防滑鞋、薄外套。'},
+    {t:'11:30', name:'跳石海岸', q:'跳石海岸', hi:true,
+      meta:'停留只有 <b>20 分钟</b>。台 2 线旁的黑石海岸，CCD／底片超出片。',
+      tipw:'⏱ 时间非常短——<b>下车就先拍，别先逛</b>。构图想好再下车。'},
+    {t:'12:20', name:'野柳地质公园', q:'野柳地質公園',
+      meta:'停留 1 小时 15 分。女王头、蕈状岩。海边全无遮蔽。',
+      tipw:'风很大、日晒很强。<b>帽子要能扣住、防晒要补</b>。女王头前面永远在排队拍照，先去后段再折返比较快。'},
+    {t:'14:30', name:'十分老街 · 放天灯', q:'十分老街',
+      meta:'铁道就在店门口，天灯在轨道上放。',
+      tipw:'⚠️ <b>火车通过时一定要退到黄线外</b>，不要为了拍照留在轨道上。天灯一颗约 NT$200（四色）起，现场付。'},
+    {t:'16:15', name:'黄金瀑布 + 阴阳海', q:'黃金瀑布', meta:'停留 45 分钟。矿区氧化形成的金黄溪水与海面色差。'},
+    {t:'17:00', name:'九份老街', q:'九份老街', hi:true,
+      meta:'停留 2 小时。<b>日落约 17:10 — 你们刚好赶上灯笼亮起来的时段，这是九份最美的一小时。</b>竖崎路阶梯、阿妹茶楼、海悦楼观景。',
+      tipw:'石阶又多又陡、人非常挤，<b>穿防滑鞋、背包背前面</b>。老街窄巷不好撑伞。'},
+    {t:'19:00', name:'🚐 返程', meta:'约 20:30 回到台北市区。'},
+    {t:'21:00', name:'晚餐 · 西门町', q:'西門町', meta:'西门町很多店开到 22:00 以后，回来还有得吃。'},
+    {t:'', free:true, name:'今天週一全台北都在休',
+      meta:'故宫、西门红楼、SNAPPP 赤店、猫空缆车、北投三个馆——週一全部休。所以今天出城是最优解。'}
+  ]
+},
+{
+  date:'2026-11-17', dow:'週二', c:'--d9',
+  title:'东门 · 永康街 · 取底片 · 台大 · 公馆 · 收尾',
+  sub:'最后一个完整日。明天七点出门，今天没买到的东西就没有了。',
+  sleep:{ label:HOTEL_B.name, q:HOTEL_B.q },
+  nodes:['xmd','cks','dan','gg','tpe'],
+  route:[
+    {n:'东门市场', q:'東門市場'},{n:'永康街', q:'永康街'},
+    {n:'台冲（取底片）', q:'台沖 台灣沖印網 台北市大安區仁愛路三段143巷46號'},
+    {n:'台湾大学', q:'國立臺灣大學'},{n:'公馆商圈', q:'公館商圈'},{n:'师大夜市', q:'師大夜市'},{n:'光南 北车店', q:'光南大批發 台北站前店'}
+  ],
+  items:[
+    {t:'07:30', name:'东门早市', q:'東門市場', hi:true,
+      hours:'约 06:00–13:00', meta:'捷运东门站 1／2 号出口。本地人很多，最有烟火气的时段就是清晨。'},
+    {t:'09:00', name:'永康街 · 厚里', q:'厚里 永康街',
+      meta:'设计师原创小物为主，不是大批量生产的那种。明信片 NT$40–60（<b>店里不卖邮票</b>）。'},
+    {t:'09:35', name:'永康街 · Bao Maison', q:'Bao Maison 永康街', meta:'文创周边，香薰、饰物种类多。'},
+    {t:'10:05', name:'永康街 · 來好 lai hao', q:'來好lai hao 永康街',
+      hours:'週一–週日 09:30–21:30', meta:'两层楼，伴手礼大店，东西最多，适合一次买齐。'},
+    {t:'10:40', name:'永康街 · littdlework', q:'littdlework 永康街', meta:'刺绣店，很多文创店卖的是他们的产品。'},
+    {t:'11:00', name:'永康街 · garden 文创选物店', q:'garden 文創選物店 永康街',
+      tipw:'⚠️ 店里有不少 IP 玩偶挂件，<b>三丽鸥／卡通周边要自己判断是不是正品</b>。'},
+    {t:'11:20', name:'永康街 · LiMA 原选旗舰店', q:'LiMA原選 永康街',
+      tipw:'⚠️ 台湾原住民元素的选物店，但<b>你 Excel 里注明「暂时歇业」</b>。出发前一天先在 Google 地图查一下状态，别白跑。'},
+    {t:'11:40', name:'午餐 · 府城台南美食', q:'府城台南美食 永康街',
+      meta:'整家店都是正统台南菜：台南虾仁肉圆、豆乳鸡、台南米糕、古早味小吃。',
+      tipw:'另一个选项永康牛肉面：肥肠与牛肉都好，但<b>价格是普通牛肉面店的两倍以上</b>，而且是川味红烧牛肉面——你说不喜欢大陆菜系，这家可以跳过。'},
+    {t:'12:40', name:'甜满牛轧饼', q:'甜滿牛軋餅 永康街', badge:'cash',
+      meta:'葱油味浓、饼干比别家厚。NT$220 一盒。<b>只收现金</b>。'},
+    {t:'13:05', name:'白水豆花', q:'白水豆花 永康街', badge:'cash',
+      hours:'13:00–21:00 · <b>週四公休</b>（今天週二，有开）',
+      meta:'豆花超滑顺、配料丰富，桌上有免费黑糖水。<b>只收现金</b>。',
+      tipw:'配料上面<b>会加香菜</b>，不吃要先跟店员讲。'},
+    {t:'13:45', name:'50 嵐 手摇', q:'50嵐 永康街',
+      meta:'TOP1 四季春＋珍波椰 · TOP2 珍珠奶茶（小珍珠）／珍珠奶绿 · TOP3 冰淇淋红／绿茶。NT$50–70，满 NT$50 可免费加料。'},
+    {t:'14:15', name:'🎞 台冲 · 取底片', q:'台沖 台灣沖印網 台北市大安區仁愛路三段143巷46號', hi:true, badge:'book',
+      hours:'週二 11:00–20:00',
+      meta:'捷运东门 → 忠孝復兴（转乘），2 号出口。',
+      tipw:'取件时<b>当场检查扫描档能不能打开／下载完</b>。云端连结先存到手机或下载下来——明天在机场没时间处理。'},
+    {t:'15:15', name:'捷运 → 公馆站', q:'捷運公館站', meta:'忠孝復兴 → 公馆需转乘，约 25 分钟。4 号出口就是商圈与台大。'},
+    {t:'15:40', name:'台湾大学', q:'國立臺灣大學', badge:'must',
+      meta:'舟山路校门 → 椰林大道 → 总图书馆 → 醉月湖。'},
+    {t:'16:10', name:'台大农产品展示中心', q:'臺大農產品展示中心', hi:true, badge:'must',
+      hours:'约平日 09:00–17:00',
+      meta:'台大自产鲜奶（奶味很浓）＋肉松包（馅很足）。',
+      tipw:'⚠️ <b>鲜奶经常限量、卖完就没有</b>。今天已经是下午了，做好扑空的心理准备；真的想喝就把这项提到上午。'},
+    {t:'16:50', name:'茉莉二手书店 公馆店', q:'茉莉二手書店 公館店',
+      meta:'欧美与华语老牌都多。附近还有一间专门的影音馆，卖二手 CD、DVD、黑胶。价格透明，但绝版书不便宜。'},
+    {t:'17:30', name:'雅博客二手书店', q:'雅博客二手書店 公館', meta:'老牌书店，价格实惠，很好淘。'},
+    {t:'17:55', name:'雅舍二手书店', q:'雅舍二手書店 公館'},
+    {t:'18:15', name:'女书店', q:'女書店 台北', meta:'华文世界第一家女性主义书店，专注性别议题与女性研究。'},
+    {t:'18:45', name:'师园盐酥鸡', q:'師園鹽酥雞', meta:'素菜＋甜不辣是必点。'},
+    {t:'19:20', name:'师大夜市', q:'師大夜市', meta:'公馆步行或捷运可达。'},
+    {t:'20:40', name:'🛍 最后补货 · 回台北车站', q:'光南大批發 台北站前店', hi:true,
+      meta:'光南大批发 + 垫脚石（都到 22:30）· 香帅蛋糕（芋泥口味）· 洪瑞珍三明治。',
+      tipw:'⚠️ <b>明天早上七点就出门，今天没买到的就是没有了。</b>清单最后核对一次：车牌冰箱贴、明信片、牛轧饼、凤梨酥、鲜奶麻薯、朋友交代的东西。'},
+    {t:'22:00', name:'回旅馆 · 收行李', q:HOTEL_B.q, hi:true,
+      tipg:'🧳 <b>今晚一定要收完。</b><br>· <b>铅字印章必须托运</b>（金属尖锐物，随身会被拦下）<br>· 液体超过 100ml 全部托运<br>· 打火机不能托运也不能随身<br>· 明信片、票根、天灯照片这类怕折的，塞进随身背包<br>· 手机充好电、把 KLOOK 与登机凭证截图整理好'}
+  ]
+},
+{
+  date:'2026-11-18', dow:'週三', c:'--d10',
+  title:'回家',
+  sub:'11:00 起飞，等于零行程。今天只有一件事：准时到机场。',
+  sleep:{ label:'—— 回吉隆坡 ——', q:'' },
+  nodes:['xmd','tpe','apt'],
+  route:[
+    {n:'Hotel Puri Ximen', q:HOTEL_B.q},{n:'台北车站 A1', q:'機場捷運A1台北車站'},{n:'桃园机场 T2', q:APT2.q}
+  ],
+  items:[
+    {t:'06:15', name:'起床 · 最后检查', meta:'房间充电器、浴室、床底、保险箱都看一遍。'},
+    {t:'06:50', name:'退房 · 出发', q:HOTEL_B.q, hi:true, meta:'退房时限是 11:00，但你们要早走。'},
+    {t:'07:05', name:'捷运 西门 → 台北车站', q:'捷運西門站', meta:'1 站，板南线。或直接从旅馆走路约 15 分钟到北车。'},
+    {t:'07:20', name:'机场捷运 A1 → A13（直达车）', q:'機場捷運A1台北車站', hi:true,
+      meta:'A1 直达车首班约 06:00，之后约每 15 分钟一班，到 A13 第二航厦约 36–39 分钟。<em>班表偶有调整，前一晚确认。</em>'},
+    {t:'08:00', name:'抵达 桃园机场 第二航厦', q:APT2.q},
+    {t:'08:15', name:'星宇航空 报到 · 托运行李', q:APT2.q, hi:true,
+      tipw:'⚠️ <b>国际线报到柜台一般在起飞前 60 分钟关闭。</b>铅字印章、液体、指甲刀这类要在这一步进托运行李。'},
+    {t:'09:30', name:'出境查验 + 安检', meta:'退税（如有）要在出境前办完。'},
+    {t:'11:00', name:'JX725 起飞', q:APT2.q, hi:true, icon:'✈️'},
+    {t:'16:00', name:'抵达 吉隆坡 KLIA 第一航厦', q:'Kuala Lumpur International Airport Terminal 1', hi:true, icon:'🛬',
+      meta:'台北与吉隆坡同为 UTC+8，落地时间就是当地时间。'}
+  ]
+}
+];
+
+/* 地图节点  la = 标签方位 l/r/t/b */
+var NODES = {
+  apt:{x:84, y:610, n:'桃园机场 T2', s:'A13', la:'r'},
+  tsh:{x:466,y:116, n:'跳石海岸', s:'', la:'t'},
+  yl: {x:590,y:102, n:'野柳', s:'', la:'t'},
+  jl: {x:752,y:150, n:'基隆', s:'', la:'r'},
+  jf: {x:814,y:248, n:'九份 · 金瓜石', s:'', la:'l'},
+  sf: {x:768,y:346, n:'十分 · 平溪', s:'', la:'l'},
+  ymt:{x:452,y:208, n:'阳明山 · 擎天岗', s:'', la:'t'},
+  btu:{x:356,y:272, n:'北投 · 地热谷', s:'', la:'l'},
+  npm:{x:444,y:340, n:'士林 · 故宫', s:'', la:'r'},
+  csj:{x:448,y:410, n:'中山 · 赤峰街', s:'', la:'r'},
+  ddc:{x:312,y:424, n:'大稻埕 · 迪化街', s:'', la:'l'},
+  hs: {x:552,y:432, n:'华山 1914', s:'', la:'r'},
+  sys:{x:648,y:452, n:'松山文创', s:'', la:'r'},
+  tpe:{x:392,y:472, n:'台北车站', s:'北门 · 地下街', la:'l'},
+  dan:{x:580,y:498, n:'大安 · 东区', s:'台冲 · CCD', la:'r'},
+  xmd:{x:306,y:522, n:'西门町 · 龙山寺', s:'', la:'l'},
+  cks:{x:452,y:522, n:'中正纪念堂 · 东门 · 永康街', s:'', la:'b'},
+  xy: {x:640,y:556, n:'信义 · 101 · 象山', s:'', la:'r'},
+  gg: {x:418,y:606, n:'公馆 · 台大 · 师大', s:'', la:'l'}
+};
+
+/* 待办 */
+var TODO = [
+  { h:'出发前 · 一定要做', items:[
+    '线上填好台湾<b>入境登记表 TWAC</b>（两人各一份），完成后截图存手机；免签停留 30 天。',
+    '确认两本护照效期在 <b>2027 年 5 月 18 日之后</b>（入境日起算满 6 个月）。',
+    '把回程 JX725 的电子机票截图存到手机——入境审查可能会问。',
+    '两个 KLOOK 团的凭证、集合地点、领队联络方式，<b>全部截图存到相簿</b>（山上跟九份讯号不稳）。',
+    '订好台湾上网方案（eSIM 或 网卡），落地前先装好设定档。',
+    '出发前一天再确认一次<b>桃园机场航厦</b>：登机证写 T2，但航空公司偶尔调整（星宇客服 +886-2-2791-1199）。',
+    '出发前一天查 <b>LiMA 原选旗舰店</b>（永康街）是否已恢复营业——你 Excel 注明暂时歇业。',
+    '准备现金：白水豆花、甜满牛轧饼<b>只收现金</b>，夜市摊也多半收现金。',
+    '盖章用的<b>空白本子</b>一本（无格线的最好用）。',
+    '打包：薄外套 / 风衣（山上低 5–8°C）、轻便雨衣、防滑好走的鞋、行动电源、转接头（台湾是 110V，插头与马来西亚不同）。'
+  ]},
+  { h:'还没决定 · 需要你回覆', items:[
+    '<b>11/9 的住宿</b>：你决定睡桃园 T2 入境大厅。如果改主意要加订一晚，跟我说，我把 11/10 的行程整个改成正常强度。',
+    '<b>零用钱是每人还是两人合计</b>：我目前按「每人 RM2,000–2,500」排。如果是两人合计，购物清单要大幅删减，跟我说我来砍。'
+  ]},
+  { h:'到台湾后 · 第一天就办', items:[
+    '在机场便利商店或站内售卖机买<b>悠遊卡</b>（两人各一张），储值 NT$500 起。捷运、公车、超商都能用。',
+    '到 Poshpacker 柜台先问<b>能不能提早寄放行李</b>（入住是 15:00）。',
+    '11/13 退房后，把行李寄到 Hotel Puri Ximen 再出门。'
+  ]},
+  { h:'行程中 · 有时限的事', items:[
+    '<b>11/14（六）13:15 台冲送底片</b> —— 当场问「11/17 週二能不能取件」，并要求数位扫描档。这是唯一来得及的窗口。',
+    '<b>11/17（二）14:15 台冲取底片</b> —— 取件时当场确认扫描档能打开／下载完。',
+    '<b>11/17（二）晚上把伴手礼买完</b> —— 11/18 早上七点出门，之后没有任何购物时间。',
+    '<b>11/17（二）晚上收好行李</b> —— 铅字印章一定要托运。',
+    '故宫（11/15）<b>现场买纸本票</b>，不要线上买。',
+    '想要故宫免费定时导览的话，出发前上官网看能不能预约中文场。'
+  ]}
+];
+
+/* 贴士 */
+var TIPS = [
+  { t:'过敏与忌口 · 存在手机里给店家看', kind:'quote', html:
+    '<div class="quote"><small>ANNE — 菇类过敏</small>你好，她對<b>菇類</b>過敏（香菇、蘑菇、木耳類都不行），請整份不要加菇，謝謝！也麻煩不要用煮過菇的湯底。</div>'+
+    '<div class="quote"><small>YOC — 鸭肉过敏</small>你好，她對<b>鴨肉</b>過敏，請不要加鴨肉或鴨油，謝謝！</div>'+
+    '<p style="margin:10px 0 0;font-size:13px;color:var(--ink2)">台湾小吃里<b>香菇几乎无所不在</b>：卤肉饭浇头、羹汤、油饭、四神汤、鸡汤底、素食便当。夜市摊很难沟通细节，Anne 优先挑<b>看得见食材</b>的（烤物、炸物、水果、豆花），避开羹汤与卤味汤汁。<br>Yoc 不吃鸭：避开鸭肉扁、鸭肉羹这类专门店。Yoc 不爱大陆菜系，行程里的餐厅已经全部是台湾本土小吃与台南菜。<br>Anne 不吃粥：早餐店的清粥小菜、四神汤这类跳过。</p>' },
+
+  { t:'交通', kind:'list', items:[
+    '<b>悠遊卡</b>走天下：捷运、公车、超商、部分店家。捷运用悠遊卡有折扣。',
+    '<b>捷运车厢内禁止饮食</b>（连喝水都不行，会罚钱）。手摇饮要在进站前喝完或收好。',
+    '<b>机场捷运</b>：A1 台北车站 ⇄ A13 第二航厦。直达车约 36–39 分钟、普通车约 55 分钟，票价 NT$150。直达车 A1 首班约 06:00、末班约 23:00；普通车从机场回台北末班约 23:35。',
+    '<b>公车</b>刷悠遊卡，上下车都要刷。故宫要在捷运士林站 1 号出口转红 30 / R30，直达正馆门口。',
+    '你们全程走捷运与公车，没有租车——这是对的：台北市区停车位难找又贵，机车流量大，捷运覆盖极好。',
+    '<b>手扶梯靠右站</b>是台北的习惯（虽然官方已不再宣导），左边留给赶路的人。'
+  ]},
+
+  { t:'钱 · 预算怎么分配', kind:'budget' },
+
+  { t:'天气与穿着（11 月中的台北）', kind:'list', items:[
+    '市区白天约 <b>22–26°C</b>、夜间 <b>18–21°C</b>，体感偏闷；但一场东北季风来就会掉到 16–18°C。',
+    '<b>阳明山与九份会明显更冷更湿</b>，比市区低 5–8°C，而且常起雾下雨。这两天（11/12、11/16）一定要带外套与轻便雨衣。',
+    '11 月是台北的雨季尾巴，<b>随身带折伞</b>。九份窄巷不好撑伞，雨衣更实用。',
+    '象山、擎天岗、九份都是石阶——<b>防滑好走的鞋是这趟最重要的装备</b>。'
+  ]},
+
+  { t:'拍照与底片', kind:'list', items:[
+    '底片安检：<b>ISO 800 以下的底片过随身行李 X 光机通常没事</b>，但不要放托运（托运的机器强很多）。担心的话在安检前请求手检（hand check）。',
+    '台冲送件 11/14、取件 11/17，这是唯一来得及的窗口。<b>务必要数位扫描档</b>，纸本来不及也至少档案带得走。',
+    'CCD／底片出片点：跳石海岸（只有 20 分钟，下车先拍）、九份竖崎路灯笼、大稻埕码头夕阳、松山文创生态池、象山六巨石、西门彩虹斑马线。',
+    '故宫展厅有禁止拍照的区域，看标示；龙山寺拍照避开正在祭拜的人。'
+  ]},
+
+  { t:'盖章（Yoc 专用）', kind:'list', items:[
+    '主力在 <b>11/10</b>：台北北门邮局一楼 7–8 个风景戳 + 二楼邮政博物馆台北馆十几个免费纪念章。',
+    '邮政博物馆台北馆<b>週一休馆</b>，邮局<b>週日公休</b> —— 11/10 是週二，两个都开。',
+    '带<b>空白无格线的本子</b>，比明信片好盖、油墨不透。',
+    '台湾很多点是自助印泥，<b>先在废纸上试一下</b>再盖到本子上。',
+    '故宫、松山文创、华山、各捷运站、部分文创店也常有隐藏章，看到就问一句。'
+  ]},
+
+  { t:'安全与紧急', kind:'phone', items:[
+    ['警察','110'],['火警 / 救护车','119'],
+    ['24 小时旅游谘询热线','0800-011-765'],
+    ['桃园机场 T2 旅客服务中心（05:30–24:00）','+886-3-398-3341'],
+    ['星宇航空 台湾客服（08:00–20:00）','+886-2-2791-1199'],
+    ['马来西亚友谊及贸易中心（台北）','+886-2-2713-2626'],
+    ['Poshpacker Hotel','+886-2-2375-5555'],
+    ['Hotel Puri Ximen','+886-2-2371-8616']
+  ]},
+
+  { t:'排不进去的（机动备选）', kind:'list', items:[
+    '<b>猫空缆车 + 台北动物园</b>（捷运动物园站）—— 要半天以上。<b>週一停驶</b>（只有每月第一个週一营运，11 月的第一个週一是 11/2，你们不在）。11/15 下午如果不想去士林官邸，可以换成这个。',
+    '<b>淡水 + 麻吉奶奶鲜奶麻薯</b> —— 单程约 40 分钟，来回要半天。',
+    '<b>台北 101 观景台</b> —— 行程里只排了免费拍照点，想上去要另买票。',
+    '<b>Bar Pine / Bar Between</b>（大安）—— 11/14 从信义回程顺路，看当晚体力。',
+    '<b>总统府参观</b> —— 免费，但开放日与预约方式每年调整，要先上官网确认。',
+    '<b>东区地下街、中山地下街 R 区</b> —— 下雨天的备案，全程室内。'
+  ]},
+
+  { t:'两个人相处（你们自己写的）', kind:'list', items:[
+    'Yoc 不喜欢排很久的队（几小时那种）—— 行程里没有需要长时间排队的店；如果现场队伍太夸张，直接跳过，清单上还有很多。',
+    'Yoc 会拍 vlog、会在旅馆打电话给妈妈、路上会停下来拍照 —— 行程每天都留了弹性时段，不用赶。',
+    'Anne 想去佳佳唱片（11/13 已排）。',
+    '11/15 下午刻意留白 —— 这是整趟唯一可以「什么都不做」的时段，累了就用掉它。'
+  ]}
+];
+
+/* =========================================================
+   渲染
+   ========================================================= */
+function esc(s){ return String(s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
+function tpe(dateStr, timeStr){ return new Date(dateStr + 'T' + timeStr + ':00+08:00'); }
+function pad(n){ return n<10 ? '0'+n : ''+n; }
+
+/* ---- top bar ---- */
+(function(){
+  var bar = document.getElementById('barIn');
+  DAYS.forEach(function(d,i){
+    var a = document.createElement('a');
+    a.className = 'jump dot';
+    a.href = '#d'+(i+1);
+    a.style.setProperty('--c','var('+d.c+')');
+    a.textContent = d.date.slice(5).replace('-','/');
+    bar.appendChild(a);
+  });
+})();
+
+/* ---- 地图 ---- */
+(function(){
+  var routesEl = document.getElementById('mapRoutes');
+  var nodesEl  = document.getElementById('mapNodes');
+  var legend   = document.getElementById('legend');
+  var used = {};
+  DAYS.forEach(function(d){ d.nodes.forEach(function(k){ used[k]=1; }); });
+  // 额外常驻标示
+  ['jl'].forEach(function(k){ used[k]=1; });
+
+  // routes
+  DAYS.forEach(function(d,i){
+    if(d.nodes.length < 2) {
+      var g0 = document.createElementNS('http://www.w3.org/2000/svg','g');
+      g0.setAttribute('data-day', i+1);
+      routesEl.appendChild(g0);
+      return;
+    }
+    var pts = d.nodes.map(function(k){ return NODES[k]; });
+    var dstr = pts.map(function(p,j){ return (j?'L':'M') + p.x + ',' + p.y; }).join(' ');
+    var g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.setAttribute('data-day', i+1);
+    var path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', dstr);
+    path.setAttribute('stroke','var('+d.c+')');
+    path.setAttribute('stroke-width','3.4');
+    path.setAttribute('opacity','.85');
+    if(i===0 || i===9) path.setAttribute('stroke-dasharray','9 7');
+    g.appendChild(path);
+    routesEl.appendChild(g);
+  });
+
+  // nodes
+  Object.keys(NODES).forEach(function(k){
+    if(!used[k]) return;
+    var p = NODES[k];
+    var g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx',p.x); c.setAttribute('cy',p.y); c.setAttribute('r','5.5');
+    c.setAttribute('fill','var(--bg)'); c.setAttribute('stroke','var(--ink)');
+    c.setAttribute('stroke-width','2.2');
+    g.appendChild(c);
+    var la = p.la || 'r';
+    var lx = p.x, ly = p.y + 4, anch = 'start';
+    if(la==='r'){ lx = p.x + 11; }
+    else if(la==='l'){ lx = p.x - 11; anch = 'end'; }
+    else if(la==='t'){ lx = p.x; ly = p.y - 13; anch = 'middle'; }
+    else { lx = p.x; ly = p.y + 21; anch = 'middle'; }
+
+    var t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x', lx); t.setAttribute('y', ly);
+    t.setAttribute('class','mp-lab'); t.setAttribute('text-anchor', anch);
+    t.setAttribute('paint-order','stroke');
+    t.setAttribute('stroke','var(--card)'); t.setAttribute('stroke-width','3.5');
+    t.setAttribute('stroke-linejoin','round');
+    t.textContent = p.n;
+    g.appendChild(t);
+    if(p.s){
+      var t2 = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t2.setAttribute('x', lx); t2.setAttribute('y', ly + 13);
+      t2.setAttribute('class','mp-lab-s'); t2.setAttribute('text-anchor', anch);
+      t2.setAttribute('paint-order','stroke');
+      t2.setAttribute('stroke','var(--card)'); t2.setAttribute('stroke-width','3.5');
+      t2.setAttribute('stroke-linejoin','round');
+      t2.textContent = p.s;
+      g.appendChild(t2);
+    }
+    nodesEl.appendChild(g);
+  });
+
+  // 住宿标记
+  [['apt','1 晚'],['tpe','3 晚'],['xmd','5 晚']].forEach(function(pair){
+    var p = NODES[pair[0]];
+    var t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x', p.x-7); t.setAttribute('y', p.y-11);
+    t.setAttribute('class','mp-bed');
+    t.textContent = '🛏';
+    nodesEl.appendChild(t);
+    var t2 = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x', p.x+9); t2.setAttribute('y', p.y-11);
+    t2.setAttribute('class','mp-lab-s');
+    t2.textContent = pair[1];
+    nodesEl.appendChild(t2);
+  });
+
+  // legend
+  var active = 0;
+  DAYS.forEach(function(d,i){
+    var b = document.createElement('button');
+    b.className='lg'; b.type='button';
+    b.style.setProperty('--c','var('+d.c+')');
+    b.setAttribute('aria-pressed','false');
+    b.innerHTML = '<i></i>' + d.date.slice(5).replace('-','/');
+    b.addEventListener('click', function(){
+      active = (active === i+1) ? 0 : i+1;
+      [].forEach.call(legend.children, function(el,j){
+        el.setAttribute('aria-pressed', active===j+1 ? 'true':'false');
+      });
+      [].forEach.call(routesEl.children, function(g){
+        var dn = +g.getAttribute('data-day');
+        g.classList.toggle('dim', active!==0 && dn!==active);
+      });
+    });
+    legend.appendChild(b);
+  });
+})();
+
+/* ---- 已确认 ---- */
+(function(){
+  var box = document.getElementById('bookedBox');
+  function flightCard(o){
+    return '<div class="card">'+
+      '<div class="card-h"><div class="card-t">'+o.title+'</div><div class="card-k">'+o.k+'</div></div>'+
+      '<div class="flightrow">'+
+        '<div class="fp"><div class="code">'+o.a+'</div><div class="tm">'+o.at+'</div><div class="pl">'+o.ap+'</div></div>'+
+        '<div class="fmid">'+o.dur+'<div class="ln"></div>直飞</div>'+
+        '<div class="fp r"><div class="code">'+o.b+'</div><div class="tm">'+o.bt+'</div><div class="pl">'+o.bp+'</div></div>'+
+      '</div>'+
+      '<dl class="kv">'+
+        '<dt>日期</dt><dd>'+o.date+'</dd>'+
+        '<dt>机型</dt><dd>'+o.eq+'</dd>'+
+        '<dt>舱等</dt><dd>经济舱 · 2 人</dd>'+
+        '<dt>客服</dt><dd><a class="tel" href="tel:+886227911199">+886-2-2791-1199</a> <em style="color:var(--ink3);font-size:12px">08:00–20:00</em></dd>'+
+      '</dl></div>';
+  }
+  var html = '';
+  html += flightCard({title:'JX726 · 去程', k:'FLIGHT', a:'KUL', at:'17:10', ap:'吉隆坡国际机场<br>第一航厦 T1',
+    b:'TPE', bt:'22:00', bp:'桃园国际机场<br>第二航厦 T2', dur:'4 小时 50 分', date:'2026 年 11 月 9 日（週一）', eq:'空中巴士 A330-900neo · 星宇航空'});
+  html += flightCard({title:'JX725 · 回程', k:'FLIGHT', a:'TPE', at:'11:00', ap:'桃园国际机场<br>第二航厦 T2',
+    b:'KUL', bt:'16:00', bp:'吉隆坡国际机场<br>第一航厦 T1', dur:'5 小时 00 分', date:'2026 年 11 月 18 日（週三）', eq:'空中巴士 A330-900neo · 星宇航空'});
+
+  html += '<div class="card"><div class="card-h"><div class="card-t">'+HOTEL_A.name+'</div><div class="card-k">STAY 1</div></div>'+
+    '<dl class="kv">'+
+    '<dt>入住</dt><dd><b>11 月 10 日（週二）15:00 后</b></dd>'+
+    '<dt>退房</dt><dd><b>11 月 13 日（週五）11:00 前</b></dd>'+
+    '<dt>晚数</dt><dd>3 晚 · 1 间房</dd>'+
+    '<dt>地址</dt><dd>'+HOTEL_A.addr+'<br><a class="nav" href="'+navUrl(HOTEL_A.q)+'" target="_blank" rel="noopener">导航到这里</a></dd>'+
+    '<dt>电话</dt><dd><a class="tel" href="tel:+886223755555">'+HOTEL_A.tel+'</a></dd>'+
+    '<dt>位置</dt><dd>台北车站步行约 6 分钟（M8 出口）· 北门站更近</dd>'+
+    '</dl></div>';
+
+  html += '<div class="card"><div class="card-h"><div class="card-t">'+HOTEL_B.name+'</div><div class="card-k">STAY 2</div></div>'+
+    '<dl class="kv">'+
+    '<dt>入住</dt><dd><b>11 月 13 日（週五）15:00 后</b></dd>'+
+    '<dt>退房</dt><dd><b>11 月 18 日（週三）11:00 前</b></dd>'+
+    '<dt>晚数</dt><dd>5 晚 · 1 间房</dd>'+
+    '<dt>地址</dt><dd>'+HOTEL_B.addr+'<br><a class="nav" href="'+navUrl(HOTEL_B.q)+'" target="_blank" rel="noopener">导航到这里</a></dd>'+
+    '<dt>电话</dt><dd><a class="tel" href="tel:+886223718616">'+HOTEL_B.tel+'</a></dd>'+
+    '<dt>位置</dt><dd>捷运西门站步行约 5 分钟 · 龙山寺步行 10–15 分钟</dd>'+
+    '</dl></div>';
+
+  html += '<div class="card"><div class="card-h"><div class="card-t">11 月 9 日 · 桃园机场过夜 <span class="b b-must">无订房</span></div><div class="card-k">STAY 0</div></div>'+
+    '<dl class="kv">'+
+    '<dt>地点</dt><dd>桃园国际机场 第二航厦 <b>一楼入境大厅</b><br><a class="nav" href="'+navUrl(APT2.q)+'" target="_blank" rel="noopener">导航到这里</a></dd>'+
+    '<dt>时间</dt><dd>11/9 约 23:00 → 11/10 约 06:00</dd>'+
+    '<dt>服务台</dt><dd><a class="tel" href="tel:+88633983341">+886-3-398-3341</a> <em style="color:var(--ink3);font-size:12px">05:30–24:00</em></dd>'+
+    '</dl>'+
+    '<div class="tip w" style="margin-top:10px">你 Excel 里记的 3F 可收缩躺椅、A7–A8 的 70 度椅、D5R 躺椅，<b>全部在出境管制区内，入境旅客进不去</b>。可用的是一楼入境大厅（硬椅子、通宵开灯）与<b>一楼 24 小时免费淋浴间</b>（自备毛巾）。</div>'+
+    '</div>';
+
+  html += '<div class="card"><div class="card-h"><div class="card-t">KLOOK · 北投 + 阳明山芒草一日游 <span class="b b-ok">已订</span></div><div class="card-k">TOUR 1</div></div>'+
+    '<dl class="kv">'+
+    '<dt>日期</dt><dd><b>11 月 12 日（週四）</b>08:30 出发 · 17:10 返回</dd>'+
+    '<dt>路线</dt><dd>北投图书馆 → 北投温泉博物馆 → 地热谷 → 阳明山花钟 → 竹子湖午餐 → 小油坑 → 擎天岗 → 冷水坑</dd>'+
+    '<dt>提醒</dt><dd>集合点与联络方式以行前通知为准，凭证请先截图</dd>'+
+    '</dl></div>';
+
+  html += '<div class="card"><div class="card-h"><div class="card-t">KLOOK · 跳石 + 野柳 + 十分 + 九份一日游 <span class="b b-ok">已订</span></div><div class="card-k">TOUR 2</div></div>'+
+    '<dl class="kv">'+
+    '<dt>日期</dt><dd><b>11 月 16 日（週一）</b>10:00 出发 · 约 20:30 返回</dd>'+
+    '<dt>路线</dt><dd>跳石海岸 20 分 → 野柳地质公园 1 小时 15 分 → 十分老街 → 黄金瀑布 + 阴阳海 45 分 → 九份老街 2 小时</dd>'+
+    '<dt>提醒</dt><dd>跳石只停 20 分钟，下车先拍；九份日落约 17:10，正好赶上灯笼</dd>'+
+    '</dl></div>';
+
+  html += '<div class="card"><div class="card-h"><div class="card-t">租车</div><div class="card-k">CAR</div></div>'+
+    '<div class="tip g" style="margin-top:8px">这趟<b>没有租车，也不需要</b>。台北市区停车位难找又贵、机车流量大，捷运与公车覆盖极好；两个出城的日子都是包车团。</div></div>';
+
+  box.innerHTML = html;
+})();
+
+/* ---- 逐日 ---- */
+(function(){
+  var box = document.getElementById('dayBox');
+  var html = '';
+  DAYS.forEach(function(d,i){
+    var idx = i+1;
+    var c = 'var('+d.c+')';
+    html += '<article class="day" id="d'+idx+'" style="--c:'+c+'">';
+    html += '<div class="day-h">'+
+      '<div class="day-n"><div class="dd">'+d.date.slice(8)+'</div><div class="dw">'+d.dow+'</div><div class="dn">DAY '+idx+'</div></div>'+
+      '<div class="day-t"><h3>'+d.title+'</h3><p>'+d.sub+'</p>'+
+        '<div class="day-sleep">🛏 <span>今晚住：</span>'+
+          (d.sleep.q ? '<a class="nav" href="'+navUrl(d.sleep.q)+'" target="_blank" rel="noopener">'+d.sleep.label+'</a>' : '<span>'+d.sleep.label+'</span>')+
+          (d.sleep.move ? ' <span class="b b-must">今天换旅馆</span>' : '')+
+          (d.sleep.warn ? ' <span class="b b-must">无订房</span>' : '')+
+        '</div>'+
+      '</div></div>';
+
+    html += '<div class="routebtns">'+
+      '<button class="rb" type="button" data-toggle="'+idx+'">🗺 当日路线</button>'+
+      (d.route && d.route.length>1 ? '<a class="rb primary" href="'+multiUrl(d.route.map(function(r){return r.q;}))+'" target="_blank" rel="noopener">🧭 全天多点导航</a>' : '')+
+      '</div>';
+
+    if(d.route && d.route.length){
+      html += '<div class="routemap" id="rm'+idx+'"><div class="strip"><div class="strip-in">';
+      d.route.forEach(function(r,j){
+        if(j) html += '<div class="link"><i></i></div>';
+        html += '<div class="stop"><div class="dot"></div><div class="nm">'+
+          '<a class="nav" style="border:0" href="'+navUrl(r.q)+'" target="_blank" rel="noopener">'+r.n+'</a>'+
+          '</div></div>';
+      });
+      html += '</div></div></div>';
+    }
+
+    html += '<ol class="tl">';
+    d.items.forEach(function(it){
+      var badge = '';
+      if(it.badge==='booked') badge = ' <span class="b b-ok">已订</span>';
+      if(it.badge==='book')   badge = ' <span class="b b-book">需提前处理</span>';
+      if(it.badge==='must')   badge = ' <span class="b b-must">必去</span>';
+      if(it.badge==='cash')   badge = ' <span class="b b-cash">只收现金</span>';
+      var nm = it.q
+        ? '<a class="nav" href="'+navUrl(it.q)+'" target="_blank" rel="noopener">'+it.name+'</a>'
+        : '<span class="plain">'+it.name+'</span>';
+      html += '<li'+(it.hi?' class="hi"':'')+'>'+
+        '<div class="t'+(it.free?' free':'')+'">'+(it.t || '弹性')+'</div>'+
+        '<div class="body">'+
+          '<div class="nm2">'+(it.icon?it.icon+' ':'')+nm+badge+'</div>'+
+          (it.hours ? '<div class="hours">🕐 '+it.hours+'</div>' : '')+
+          (it.meta  ? '<div class="meta">'+it.meta+'</div>' : '')+
+          (it.tipg  ? '<div class="tip g">'+it.tipg+'</div>' : '')+
+          (it.tipw  ? '<div class="tip w">'+it.tipw+'</div>' : '')+
+        '</div></li>';
+    });
+    html += '</ol></article>';
+  });
+  box.innerHTML = html;
+
+  box.addEventListener('click', function(e){
+    var b = e.target.closest('[data-toggle]');
+    if(!b) return;
+    var el = document.getElementById('rm'+b.getAttribute('data-toggle'));
+    if(!el) return;
+    var open = el.classList.toggle('open');
+    b.textContent = open ? '🗺 收起路线' : '🗺 当日路线';
+  });
+})();
+
+/* ---- 待办 ---- */
+(function(){
+  var html = '';
+  TODO.forEach(function(g){
+    html += '<div class="grp"><h4>'+g.h+'</h4><ul class="plain">';
+    g.items.forEach(function(s){ html += '<li>'+s+'</li>'; });
+    html += '</ul></div>';
+  });
+  document.getElementById('todoBox').innerHTML = html;
+})();
+
+/* ---- 贴士 ---- */
+(function(){
+  var html = '';
+  TIPS.forEach(function(t){
+    html += '<div class="card"><div class="card-t" style="margin-bottom:4px">'+t.t+'</div>';
+    if(t.kind==='list'){
+      html += '<ul class="plain">';
+      t.items.forEach(function(s){ html += '<li>'+s+'</li>'; });
+      html += '</ul>';
+    } else if(t.kind==='phone'){
+      html += '<div class="phone-grid">';
+      t.items.forEach(function(p){
+        var tel = p[1].replace(/[^+0-9]/g,'');
+        html += '<div><span>'+p[0]+'</span><a class="tel" href="tel:'+tel+'">'+p[1]+'</a></div>';
+      });
+      html += '</div>';
+    } else if(t.kind==='quote'){
+      html += t.html;
+    } else if(t.kind==='budget'){
+      html += '<p style="margin:4px 0 0;font-size:13px;color:var(--ink2)">'+
+        '汇率参考：<b>NT$100 ≈ RM13</b>（NT$390 ≈ RM50）。下面按「零用钱 <b>每人</b> RM2,000–2,500」＝ 每人约 <b>NT$15,600–19,500</b> 估算，不含机票、住宿、团费。</p>'+
+        '<table class="bt"><tr><th>项目</th><th class="n">每人 NT$</th><th>说明</th></tr>'+
+        '<tr><td>交通</td><td class="n">1,500</td><td>机捷来回 300 + 捷运公车约 150／天</td></tr>'+
+        '<tr><td>三餐 + 饮料</td><td class="n">5,700</td><td>约 630／天 × 9 天（早 80 / 午 150 / 晚 250 / 手摇小吃 150）</td></tr>'+
+        '<tr><td>门票 + 杂支</td><td class="n">900</td><td>故宫 350、天灯、冲底片 NT$80／卷、寄物</td></tr>'+
+        '<tr class="sum"><td>必要开销小计</td><td class="n">8,100</td><td></td></tr>'+
+        '<tr><td><b>剩下可以买东西</b></td><td class="n"><b>7,500 – 11,400</b></td><td>衣服店、文创、二手书、伴手礼、铅字印章</td></tr>'+
+        '</table>'+
+        '<div class="tip w" style="margin-top:10px">⚠️ 如果 RM2,000–2,500 是<b>两人合计</b>，那每人只剩约 NT$1,000 买东西——你 Excel 上的衣服店、二手书、文创、伴手礼几乎全部要砍。<b>告诉我是哪一种，我来调整。</b></div>'+
+        '<div class="tip g" style="margin-top:8px">💵 <b>准备现金</b>：白水豆花、甜满牛轧饼只收现金，夜市摊也多半收现金。台湾便利商店、捷运站都有 ATM，海外提款要先在马来西亚开通国际提款功能。</div>';
+    }
+    html += '</div>';
+  });
+  document.getElementById('tipBox').innerHTML = html;
+})();
+
+/* ---- 此刻关注 + 倒计时（时区安全） ---- */
+(function(){
+  var EV = [];
+  DAYS.forEach(function(d,i){
+    d.items.forEach(function(it){
+      if(!it.t || it.free || it.nc) return;
+      EV.push({ ts: tpe(d.date, it.t).getTime(), name: it.name, day: d, dayIdx: i+1, t: it.t, dow: d.dow });
+    });
+  });
+  EV.sort(function(a,b){ return a.ts - b.ts; });
+
+  var elT = document.getElementById('nowTitle'),
+      elW = document.getElementById('nowWhen'),
+      elTz= document.getElementById('tzLine'),
+      cdD = document.getElementById('cdD'), cdH = document.getElementById('cdH'),
+      cdM = document.getElementById('cdM'), cdS = document.getElementById('cdS'),
+      card= document.getElementById('nowCard');
+
+  var localOffsetMin = -new Date().getTimezoneOffset();
+  var localTzName = '';
+  try { localTzName = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
+  var sameAsTaipei = (localOffsetMin === 480);
+
+  function fmtLocal(ts){
+    var d = new Date(ts);
+    try{
+      return d.toLocaleString('zh-Hant', {month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false});
+    }catch(e){
+      return d.getMonth()+1+'/'+d.getDate()+' '+pad(d.getHours())+':'+pad(d.getMinutes());
+    }
+  }
+
+  function taipeiClock(ts){
+    var d = new Date(ts);
+    try{
+      return d.toLocaleTimeString('zh-Hant',{timeZone:'Asia/Taipei',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+    }catch(e){
+      var u = new Date(ts + 8*3600000);
+      return pad(u.getUTCHours())+':'+pad(u.getUTCMinutes())+':'+pad(u.getUTCSeconds());
+    }
+  }
+
+  function tick(){
+    var now = Date.now();
+    var nxt = null;
+    for(var i=0;i<EV.length;i++){
+      if(EV[i].ts > now){ nxt = EV[i]; break; }
+    }
+    if(!nxt){
+      elT.textContent = '行程已结束 · 欢迎回家';
+      elW.innerHTML = '2026 年 11 月 9 日 – 11 月 18 日 · 台北';
+      document.getElementById('cd').style.display='none';
+      elTz.innerHTML = '';
+      return;
+    }
+    var d = Math.max(0, nxt.ts - now);
+    var s = Math.floor(d/1000);
+    cdD.textContent = Math.floor(s/86400);
+    cdH.textContent = pad(Math.floor(s%86400/3600));
+    cdM.textContent = pad(Math.floor(s%3600/60));
+    cdS.textContent = pad(s%60);
+
+    elT.innerHTML = '<a href="#d'+nxt.dayIdx+'" style="text-decoration:none;border-bottom:1px dashed var(--line)">'+esc(nxt.name)+'</a>';
+    var when = '第 '+nxt.dayIdx+' 天 · '+nxt.day.date.slice(5).replace('-',' / ')+'（'+nxt.dow+'）· <b>'+nxt.t+'</b> 台北时间';
+    elW.innerHTML = when;
+
+    var tzHtml = '<span>🕐 台北现在 <b>'+taipeiClock(now)+'</b></span>';
+    if(!sameAsTaipei){
+      tzHtml += '<span>📍 换算到你所在时区（'+ (localTzName||'本地') +'）是 <b>'+fmtLocal(nxt.ts)+'</b></span>';
+    } else {
+      tzHtml += '<span>你所在时区与台北相同（UTC+8），不用换算</span>';
+    }
+    elTz.innerHTML = tzHtml;
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ---- 回到顶部 ---- */
+(function(){
+  var b = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    b.classList.toggle('show', window.scrollY > 700);
+  }, {passive:true});
+  b.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+
+/* ---- 离线 ---- */
+if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('/sw.js').catch(function(){});
+  });
+}
+</script>
+</body>
+</html>
