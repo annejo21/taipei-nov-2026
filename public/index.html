@@ -21,7 +21,7 @@
   --d6:#2F72B0; --d7:#5B57B0; --d8:#8E4A9E; --d9:#B94B77; --d10:#5F7180;
   --shadow:0 1px 2px rgba(60,45,30,.06),0 8px 24px -12px rgba(60,45,30,.18);
   --mrt-R:#D90023; --mrt-BL:#0070BD; --mrt-G:#008659;
-  --mrt-O:#E09000; --mrt-BR:#A06A22; --mrt-A:#8246AF;
+  --mrt-O:#E09000; --mrt-BR:#A06A22; --mrt-A:#8246AF; --mrt-Y:#D8B400;
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -36,7 +36,7 @@
     --d6:#6BAAE8; --d7:#9490EC; --d8:#C77FD6; --d9:#EC84AC; --d10:#9BAEBE;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
     --mrt-R:#FF6377; --mrt-BL:#5AAEEA; --mrt-G:#4FC48A;
-    --mrt-O:#FFC257; --mrt-BR:#D9A860; --mrt-A:#B48BE0;
+    --mrt-O:#FFC257; --mrt-BR:#D9A860; --mrt-A:#B48BE0; --mrt-Y:#F2D64B;
   }
 }
 *{box-sizing:border-box}
@@ -268,6 +268,33 @@ ul.stn li:last-child{border-bottom:0}
 ul.stn b{white-space:nowrap;font-weight:700}
 ul.stn em{font-style:normal;color:var(--ink2);font-size:12.5px}
 
+/* ---------- full network map ---------- */
+.fullmap{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 12px 14px;box-shadow:var(--shadow)}
+.fm-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.fm-t{font-weight:700;font-size:14.5px}
+.fm-s{font-size:11.5px;color:var(--ink3);margin-top:1px}
+.fm-z{display:flex;gap:4px;flex:0 0 auto}
+.fm-z button{
+  font-size:12px;padding:4px 10px;border-radius:9px;cursor:pointer;font-weight:700;
+  border:1px solid var(--line);background:var(--bg2);color:var(--ink2);
+  -webkit-tap-highlight-color:transparent;
+}
+.fm-z button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.fm-scroll{
+  overflow:auto;-webkit-overflow-scrolling:touch;
+  border:1px dashed var(--line);border-radius:12px;background:var(--bg);
+  max-height:70vh;overscroll-behavior:contain;
+}
+.fm-scroll svg{display:block;width:calc(100% * var(--z,2));height:auto}
+.fm-n{font-size:11.5px;color:var(--ink3);margin:6px 0 10px;text-align:center}
+.fm-key{display:flex;flex-wrap:wrap;gap:5px 10px;margin-top:10px}
+.fm-key span{font-size:11.5px;color:var(--ink2);display:inline-flex;align-items:center;gap:5px}
+.fm-key i{width:14px;height:5px;border-radius:3px;background:var(--c);display:inline-block}
+.fm-lab{font-size:11px;fill:var(--ink);font-weight:600;paint-order:stroke;stroke:var(--bg);stroke-width:3.4px;stroke-linejoin:round}
+.fm-code{font-size:8.5px;fill:var(--ink3);font-weight:700}
+.fm-note{font-size:12px;fill:var(--ink3);paint-order:stroke;stroke:var(--bg);stroke-width:3px}
+.fm-sec{font-size:14px;fill:var(--ink2);font-weight:700;letter-spacing:.08em}
+
 /* ---------- spots ---------- */
 .vkey{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
 .vkey span{font-size:11.5px;color:var(--ink2);background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
@@ -393,7 +420,7 @@ footer{margin:40px 0 28px;padding-top:18px;border-top:1px solid var(--line);font
 
 <section id="mrt">
   <h2><span class="num">02</span>台北捷运 · 我们会用到的</h2>
-  <p class="sec-note">只画你们这十天真的会踩到的站。下面的表格是「这一站要去干嘛」。</p>
+  <p class="sec-note">上面这张只画你们这十天真的会踩到的站，配「这一站要去干嘛」的对照表；<b>下面是完整路网图</b>，六条捷运线＋机场捷运，全线全站含站码，可以缩放拖动。</p>
   <div class="mapbox">
     <svg viewBox="0 0 900 706" role="img" aria-label="台北捷运路线示意图">
       <g id="mrtLines" stroke-linecap="round" stroke-linejoin="round" fill="none"></g>
@@ -402,6 +429,29 @@ footer{margin:40px 0 28px;padding-top:18px;border-top:1px solid var(--line);font
     <div class="legend" id="mrtLegend"></div>
   </div>
   <div id="mrtGuide"></div>
+
+  <div class="fullmap">
+    <div class="fm-h">
+      <div>
+        <div class="fm-t">完整路網圖</div>
+        <div class="fm-s">六條捷運線 + 機場捷運，全線全站含站碼</div>
+      </div>
+      <div class="fm-z">
+        <button type="button" data-z="1">小</button>
+        <button type="button" data-z="2" aria-pressed="true">中</button>
+        <button type="button" data-z="3.2">大</button>
+      </div>
+    </div>
+    <div class="fm-scroll" id="fmScroll">
+      <svg id="fullMap" viewBox="350 80 1235 1545" role="img" aria-label="台北捷運完整路網圖">
+        <g id="fmLines" fill="none" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="fmStations"></g>
+      </svg>
+    </div>
+    <div class="fm-key" id="fmKey"></div>
+    <p class="fm-n">↔ 左右上下都可以拖动 · 用上面的「小／中／大」缩放 · 大圈＝轉乘站</p>
+    <a class="rb" href="https://web.metro.taipei/pages/tw/ticketrouteinfo/routemap" target="_blank" rel="noopener">🔗 打开官方互动路网图（需要网路）</a>
+  </div>
 </section>
 
 <section id="booked">
@@ -876,8 +926,8 @@ var NODES = {
    台北捷运
    ========================================================= */
 var S = {
-  jiantan:{x:400,y:88, n:'劍潭',        la:'l'},
-  shilin: {x:400,y:132,n:'士林',        la:'l'},
+  shilin: {x:400,y:88, n:'士林',        la:'l'},
+  jiantan:{x:400,y:132,n:'劍潭',        la:'l'},
   mzx:    {x:400,y:176,n:'民權西路',    la:'l', big:1},
   shlian: {x:400,y:220,n:'雙連',        la:'l'},
   zhshan: {x:400,y:264,n:'中山',        la:'l', big:1},
@@ -913,8 +963,8 @@ var S = {
 
 var MRT = [
   { id:'R', n:'淡水信義線', c:'#D90023', cd:'#FF6377', tag:'紅線',
-    seq:['jiantan','shilin','mzx','shlian','zhshan','tpemain','ntuh','cks','dongmen','dapark','daan','xyah','t101','xiang'],
-    head:{at:'jiantan',dx:0,dy:-30,t:'↑ 往淡水'},
+    seq:['shilin','jiantan','mzx','shlian','zhshan','tpemain','ntuh','cks','dongmen','dapark','daan','xyah','t101','xiang'],
+    head:{at:'shilin',dx:0,dy:-30,t:'↑ 往淡水'},
     use:[['劍潭','士林夜市就在這站，不是士林站 — 最多人搞錯的一站'],
          ['士林','故宮：1 號出口轉紅 30 公車直達正館'],
          ['雙連','寧夏夜市走路約 8 分'],
@@ -1041,6 +1091,98 @@ var SPOTS = [
   {v:'maybe',n:'台北車站一帶：Bitter Burro 苦甜酒館 · Jup Jup 精釀 · The 58 Bar', q:'Bitter Burro 台北車站', w:'11/10–11/13 住台北车站时的选项（The 58 Bar 从北门站走约 10 分）。<b>这几家的地址与营业时间我没能完整核实，出门前在 Google 地图确认一下再走。</b>'}
 ]}
 ];
+
+/* =========================================================
+   完整路網圖資料   FS[code] = [x, y, 名稱, 標籤方位]
+   ========================================================= */
+var FS = {
+R28:[400,120,'淡水','l'],   R27:[440,160,'紅樹林','l'], R26:[480,200,'竹圍','l'],
+R25:[520,240,'關渡','l'],   R24:[560,280,'忠義','l'],   R23:[600,320,'復興崗','l'],
+R22:[640,360,'北投','l'],   R22A:[680,320,'新北投','r'],R21:[680,400,'奇岩','l'],
+R20:[720,440,'唭哩岸','l'], R19:[760,480,'石牌','l'],   R18:[800,520,'明德','l'],
+R17:[840,560,'芝山','l'],   R16:[880,600,'士林','l'],   R15:[880,640,'劍潭','l'],
+R14:[880,680,'圓山','l'],   R13:[880,720,'民權西路','l'],R12:[880,760,'雙連','l'],
+R11:[880,800,'中山','l'],   R10:[880,860,'台北車站','t'],R09:[880,900,'台大醫院','r'],
+R08:[880,940,'中正紀念堂','l'],R07:[940,1000,'東門','b'],R06:[1000,1000,'大安森林公園','t'],
+R05:[1060,1000,'大安','b'], R04:[1120,1000,'信義安和','t'],R03:[1180,1000,'台北101/世貿','b'],
+R02:[1240,1000,'象山','r'],
+
+BL01:[438,1202,'頂埔','l'], BL02:[476,1164,'永寧','l'], BL03:[514,1126,'土城','l'],
+BL04:[552,1088,'海山','l'], BL05:[590,1050,'亞東醫院','l'],BL06:[628,1012,'府中','l'],
+BL07:[666,974,'板橋','l'],  BL08:[704,936,'新埔','l'],   BL09:[742,898,'江子翠','l'],
+BL10:[780,860,'龍山寺','b'],BL11:[830,860,'西門','l'],   BL13:[930,860,'善導寺','b'],
+BL14:[980,860,'忠孝新生','t'],BL15:[1030,860,'忠孝復興','b'],BL16:[1080,860,'忠孝敦化','t'],
+BL17:[1130,860,'國父紀念館','b'],BL18:[1180,860,'市政府','t'],BL19:[1230,860,'永春','b'],
+BL20:[1280,860,'後山埤','t'],BL21:[1330,860,'昆陽','b'], BL22:[1380,860,'南港','t'],
+BL23:[1430,860,'南港展覽館','r'],
+
+G01:[840,1350,'新店','r'],  G02:[840,1305,'新店區公所','r'],G03:[840,1260,'七張','r'],
+G03A:[905,1245,'小碧潭','r'],G04:[840,1215,'大坪林','r'], G05:[840,1170,'景美','r'],
+G06:[840,1125,'萬隆','r'],  G07:[840,1080,'公館','r'],   G08:[840,1035,'台電大樓','r'],
+G09:[840,990,'古亭','l'],   G11:[838,900,'小南門','l'],  G13:[848,822,'北門','l'],
+G15:[940,800,'松江南京','t'],G16:[1000,800,'南京復興','t'],G17:[1060,800,'台北小巨蛋','b'],
+G18:[1120,800,'南京三民','t'],G19:[1180,800,'松山','r'],
+
+O01:[690,1258,'南勢角','l'],O02:[722,1204,'景安','l'],  O03:[762,1140,'永安市場','l'],
+O04:[800,1075,'頂溪','l'],  O09:[955,745,'行天宮','l'],  O10:[930,700,'中山國小','r'],
+O12:[820,720,'大橋頭','b'],
+O13:[778,700,'臺北橋','t'], O14:[736,682,'菜寮','t'],   O15:[694,666,'三重','b'],
+O16:[652,652,'先嗇宮','t'], O17:[610,640,'頭前庄','b'], O18:[568,630,'新莊','t'],
+O19:[526,622,'輔大','b'],   O20:[484,616,'丹鳳','t'],   O21:[442,612,'迴龍','l'],
+O50:[790,748,'三重國小','l'],O51:[760,779,'三和國中','l'],O52:[730,810,'徐匯中學','l'],
+O53:[700,841,'三民高中','l'],O54:[672,872,'蘆洲','l'],
+
+BR01:[960,1360,'動物園','l'],BR02:[980,1315,'木柵','l'], BR03:[1000,1270,'萬芳社區','l'],
+BR04:[1020,1225,'萬芳醫院','l'],BR05:[1040,1180,'辛亥','l'],BR06:[1060,1135,'麟光','l'],
+BR07:[1060,1090,'六張犁','l'],BR08:[1060,1045,'科技大樓','l'],
+BR12:[1010,755,'中山國中','r'],BR13:[1045,715,'松山機場','r'],BR14:[1080,680,'大直','l'],
+BR15:[1120,640,'劍南路','l'],BR16:[1160,620,'西湖','t'], BR17:[1200,620,'港墘','b'],
+BR18:[1240,640,'文德','t'], BR19:[1280,660,'內湖','b'], BR20:[1320,680,'大湖公園','t'],
+BR21:[1360,700,'葫洲','b'], BR22:[1400,730,'東湖','r'], BR23:[1440,780,'南港軟體園區','r'],
+
+Y08:[800,1268,'十四張','b'],Y09:[760,1295,'秀朗橋','b'],Y10:[720,1280,'景平','l'],
+Y12:[706,1170,'中和','r'],  Y13:[694,1126,'橋和','l'],  Y14:[682,1082,'中原','l'],
+Y15:[670,1038,'板新','r'],  Y17:[612,800,'新埔民生','l'],Y19:[610,555,'幸福','l'],
+Y20:[610,470,'新北產業園區','l'],
+
+A1:[420,1470,'台北車站','a'], A2:[465,1470,'三重','a'],  A3:[510,1470,'新北產業園區','a'],
+A4:[555,1470,'新莊副都心','a'],A5:[600,1470,'泰山','a'], A6:[645,1470,'泰山貴和','a'],
+A7:[690,1470,'體育大學','a'], A8:[735,1470,'長庚醫院','a'],A9:[780,1470,'林口','a'],
+A10:[825,1470,'山鼻','a'],   A11:[870,1470,'坑口','a'],  A12:[915,1470,'機場第一航廈','a'],
+A13:[960,1470,'機場第二航廈','a'],A14a:[1005,1470,'機場旅館','a'],A15:[1050,1470,'大園','a'],
+A16:[1095,1470,'橫山','a'],  A17:[1140,1470,'領航','a'], A18:[1185,1470,'高鐵桃園站','a'],
+A19:[1230,1470,'桃園體育園區','a'],A20:[1275,1470,'興南','a'],A21:[1320,1470,'環北','a']
+};
+
+var FL = [
+{ id:'R',  n:'淡水信義線', segs:[
+    ['R28','R27','R26','R25','R24','R23','R22','R21','R20','R19','R18','R17','R16','R15','R14','R13','R12','R11','R10','R09','R08','R07','R06','R05','R04','R03','R02'],
+    ['R22','R22A'] ] },
+{ id:'BL', n:'板南線', segs:[
+    ['BL01','BL02','BL03','BL04','BL05','BL06','BL07','BL08','BL09','BL10','BL11','R10','BL13','BL14','BL15','BL16','BL17','BL18','BL19','BL20','BL21','BL22','BL23'] ] },
+{ id:'G',  n:'松山新店線', segs:[
+    ['G01','G02','G03','G04','G05','G06','G07','G08','G09','R08','G11','BL11','G13','R11','G15','G16','G17','G18','G19'],
+    ['G03','G03A'] ] },
+{ id:'O',  n:'中和新蘆線', segs:[
+    ['O01','O02','O03','O04','G09','R07','BL14','G15','O09','O10','R13','O12'],
+    ['O12','O13','O14','O15','O16','O17','O18','O19','O20','O21'],
+    ['O12','O50','O51','O52','O53','O54'] ] },
+{ id:'BR', n:'文湖線', segs:[
+    ['BR01','BR02','BR03','BR04','BR05','BR06','BR07','BR08','R05','BL15','G16','BR12','BR13','BR14','BR15','BR16','BR17','BR18','BR19','BR20','BR21','BR22','BR23','BL23'] ] },
+{ id:'Y',  n:'環狀線', segs:[
+    ['G04','Y08','Y09','Y10','O02','Y12','Y13','Y14','Y15','BL07','Y17','O17','Y19','Y20'] ] },
+{ id:'A',  n:'機場捷運', segs:[
+    ['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14a','A15','A16','A17','A18','A19','A20','A21'] ] }
+];
+
+/* 一個站可能有多個站碼（轉乘站） */
+var FX = {
+R10:['R10','BL12'], BL11:['BL11','G12'], R11:['R11','G14'], R08:['R08','G10'],
+R07:['R07','O06'],  BL14:['BL14','O07'],G15:['G15','O08'], R13:['R13','O11'],
+R05:['R05','BR09'], BL15:['BL15','BR10'],G16:['G16','BR11'],BL23:['BL23','BR24'],
+G09:['G09','O05'],  G04:['G04','Y07'],  O02:['O02','Y11'], BL07:['BL07','Y16'],
+O17:['O17','Y18'],  Y17:['Y17'],        Y20:['Y20'],       A3:['A3']
+};
 
 /* 待办 */
 var TODO = [
@@ -1349,6 +1491,85 @@ function pad(n){ return n<10 ? '0'+n : ''+n; }
   h+='<div class="tip g" style="margin-top:14px">🎫 <b>一张悠遊卡全部搞定</b>：台北捷运、公车、机场捷运、超商都能刷，捷运刷卡还有折扣。两人各买一张，储值 NT$500 起。<br>🚫 <b>捷运车厢与付费区内禁止饮食</b>，连喝水都会罚钱 —— 手摇饮进站前先喝完或收好。</div>';
   h+='<div class="tip w" style="margin-top:8px">⚠️ <b>士林夜市在「劍潭站」，不在「士林站」。</b>这是最多观光客搞错的一站。11/15 白天去故宫才是士林站（转红 30 公车）。</div></div>';
   guide.innerHTML=h;
+})();
+
+/* ---- 完整路网图 ---- */
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  var L=document.getElementById('fmLines'), T=document.getElementById('fmStations');
+  if(!L) return;
+  function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); return e; }
+  function P(k){ return FS[k]; }
+
+  FL.forEach(function(l){
+    l.segs.forEach(function(seq){
+      var d=seq.map(function(k,i){ var p=P(k); return (i?'L':'M')+p[0]+','+p[1]; }).join(' ');
+      L.appendChild(el('path',{d:d,stroke:'var(--mrt-'+l.id+')','stroke-width':l.id==='A'?6:7,'stroke-opacity':.92}));
+    });
+  });
+
+  // 機場捷運分隔
+  L.appendChild(el('path',{d:'M380,1408 L1460,1408',stroke:'var(--line)','stroke-width':1.5,'stroke-dasharray':'5 6'}));
+  var st=el('text',{x:382,y:1438,'class':'fm-sec'});
+  st.textContent='機場捷運 · 獨立系統，票價與捷運分開計算';
+  L.appendChild(st);
+
+  Object.keys(FS).forEach(function(k){
+    var p=FS[k], codes=FX[k]||[k], big=codes.length>1;
+    var g=el('g',{});
+    g.appendChild(el('circle',{cx:p[0],cy:p[1],r:big?8:5.5,fill:'var(--card)',stroke:'var(--ink)','stroke-width':big?3:2.2}));
+    var side=p[3], tx=p[0], ty=p[1]+4, an='start', rot='';
+    if(side==='l'){ tx=p[0]-(big?13:10); an='end'; }
+    else if(side==='r'){ tx=p[0]+(big?13:10); }
+    else if(side==='t'){ ty=p[1]-(big?15:12); an='middle'; }
+    else if(side==='b'){ ty=p[1]+(big?24:21); an='middle'; }
+    else if(side==='a'){ tx=p[0]-8; ty=p[1]+14; an='end'; rot='rotate(-52 '+(p[0]-8)+' '+(p[1]+14)+')'; }
+    if(big && side!=='a'){
+      var cy = (side==='b') ? ty+12 : ty-12;
+      var tc=el('text',{x:tx,y:cy,'class':'fm-lab','text-anchor':an});
+      var cs=el('tspan',{'class':'fm-code'}); cs.textContent=codes.join('/');
+      tc.appendChild(cs); g.appendChild(tc);
+      var tn=el('text',{x:tx,y:ty,'class':'fm-lab','text-anchor':an});
+      tn.setAttribute('font-weight','800');
+      tn.appendChild(document.createTextNode(p[2]));
+      g.appendChild(tn);
+    } else {
+      var t=el('text',{x:tx,y:ty,'class':'fm-lab','text-anchor':an});
+      if(rot) t.setAttribute('transform',rot);
+      var c=el('tspan',{'class':'fm-code'}); c.textContent=codes.join('/')+' ';
+      t.appendChild(c);
+      t.appendChild(document.createTextNode(p[2]));
+      g.appendChild(t);
+    }
+    T.appendChild(g);
+  });
+
+  // 手繪註記
+  [[900,1080,'↕ 綠線往新店'],[470,1250,'↙ 藍線往頂埔'],[420,1330,'環狀線在新北市，這趟用不到']].forEach(function(n){
+    var t=el('text',{x:n[0],y:n[1],'class':'fm-note'}); t.textContent=n[2]; T.appendChild(t);
+  });
+
+  var key=document.getElementById('fmKey');
+  [['R','淡水信義線'],['BL','板南線'],['G','松山新店線'],['O','中和新蘆線'],['BR','文湖線'],
+   ['Y','環狀線（新北）'],['A','機場捷運']].forEach(function(k){
+    var sp=document.createElement('span');
+    sp.style.setProperty('--c','var(--mrt-'+k[0]+')');
+    sp.innerHTML='<i></i>'+k[1];
+    key.appendChild(sp);
+  });
+
+  var sc=document.getElementById('fmScroll');
+  sc.style.setProperty('--z',2);
+  document.querySelector('.fm-z').addEventListener('click',function(e){
+    var b=e.target.closest('[data-z]'); if(!b) return;
+    [].forEach.call(this.children,function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+    sc.style.setProperty('--z', b.getAttribute('data-z'));
+  });
+  // 開場先捲到台北車站
+  requestAnimationFrame(function(){
+    sc.scrollLeft = sc.scrollWidth*0.34 - sc.clientWidth/2;
+    sc.scrollTop  = sc.scrollHeight*0.52 - sc.clientHeight/2;
+  });
 })();
 
 /* ---- 打卡点 ---- */
