@@ -20,6 +20,8 @@
   --d1:#C0563A; --d2:#C97B2E; --d3:#9E8214; --d4:#4E8C46; --d5:#1F8C86;
   --d6:#2F72B0; --d7:#5B57B0; --d8:#8E4A9E; --d9:#B94B77; --d10:#5F7180;
   --shadow:0 1px 2px rgba(60,45,30,.06),0 8px 24px -12px rgba(60,45,30,.18);
+  --mrt-R:#D90023; --mrt-BL:#0070BD; --mrt-G:#008659;
+  --mrt-O:#E09000; --mrt-BR:#A06A22; --mrt-A:#8246AF;
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -33,6 +35,8 @@
     --d1:#F08469; --d2:#EFA95C; --d3:#D9BC44; --d4:#79C06E; --d5:#4FC2BA;
     --d6:#6BAAE8; --d7:#9490EC; --d8:#C77FD6; --d9:#EC84AC; --d10:#9BAEBE;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+    --mrt-R:#FF6377; --mrt-BL:#5AAEEA; --mrt-G:#4FC48A;
+    --mrt-O:#FFC257; --mrt-BR:#D9A860; --mrt-A:#B48BE0;
   }
 }
 *{box-sizing:border-box}
@@ -248,6 +252,34 @@ table.bt tr.sum td{border-top:2px solid var(--line);border-bottom:0;font-weight:
 table.bt td:first-child,table.bt th:first-child{white-space:nowrap;padding-left:0}
 table.bt td:last-child,table.bt th:last-child{font-size:12px;color:var(--ink2);padding-right:0}
 
+/* ---------- MRT ---------- */
+.mrt-lab{font-size:10.5px;fill:var(--ink);font-weight:600;paint-order:stroke;stroke:var(--card);stroke-width:3.5px;stroke-linejoin:round}
+.mrt-lab.b{font-weight:800;font-size:11.5px}
+.mrt-cont{font-size:10px;fill:var(--ink3);paint-order:stroke;stroke:var(--card);stroke-width:3px}
+.mrt-sec{font-size:11px;fill:var(--ink3);letter-spacing:.1em}
+#mrtLines g.dim,#mrtStations g.dim{opacity:.12}
+.mrt-grp{margin-top:14px}
+.mrt-grp h4{margin:0 0 6px;font-size:13px;display:flex;align-items:center;gap:7px;font-weight:700}
+.mrt-grp h4 i{width:16px;height:5px;border-radius:3px;background:var(--c);display:inline-block;flex:0 0 auto}
+.mrt-grp h4 span{font-weight:500;color:var(--ink3);font-size:11.5px}
+ul.stn{list-style:none;margin:0;padding:0}
+ul.stn li{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:5px 0;border-bottom:1px solid var(--line2);font-size:13px;align-items:baseline}
+ul.stn li:last-child{border-bottom:0}
+ul.stn b{white-space:nowrap;font-weight:700}
+ul.stn em{font-style:normal;color:var(--ink2);font-size:12.5px}
+
+/* ---------- spots ---------- */
+.vkey{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.vkey span{font-size:11.5px;color:var(--ink2);background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+.sp{display:grid;grid-template-columns:auto 1fr;gap:2px 9px;padding:9px 0;border-bottom:1px solid var(--line2)}
+.sp:last-child{border-bottom:0}
+.sp .v{font-size:14px;line-height:1.4;padding-top:1px}
+.sp .n{font-size:13.5px;font-weight:700;line-height:1.45}
+.sp .w{grid-column:2;font-size:12.5px;color:var(--ink2);line-height:1.55}
+.sp .w u{text-decoration:none;color:var(--ink3)}
+.area-h{font-size:11.5px;color:var(--ink3);letter-spacing:.04em;margin:0 0 2px}
+.dayjump{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:var(--accent);text-decoration:none;font-weight:600;margin-top:8px}
+
 .phone-grid{display:grid;grid-template-columns:1fr;gap:0}
 .phone-grid div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--line2);font-size:13.5px}
 .phone-grid div:last-child{border-bottom:0}
@@ -359,26 +391,46 @@ footer{margin:40px 0 28px;padding-top:18px;border-top:1px solid var(--line);font
   </div>
 </section>
 
+<section id="mrt">
+  <h2><span class="num">02</span>台北捷运 · 我们会用到的</h2>
+  <p class="sec-note">只画你们这十天真的会踩到的站。下面的表格是「这一站要去干嘛」。</p>
+  <div class="mapbox">
+    <svg viewBox="0 0 900 706" role="img" aria-label="台北捷运路线示意图">
+      <g id="mrtLines" stroke-linecap="round" stroke-linejoin="round" fill="none"></g>
+      <g id="mrtStations"></g>
+    </svg>
+    <div class="legend" id="mrtLegend"></div>
+  </div>
+  <div id="mrtGuide"></div>
+</section>
+
 <section id="booked">
-  <h2><span class="num">02</span>已确认</h2>
+  <h2><span class="num">03</span>已确认</h2>
   <p class="sec-note">出票 / 已付 / 已订。时间一律为<b>台北时间</b>（吉隆坡与台北同为 UTC+8，无时差）。</p>
   <div id="bookedBox"></div>
 </section>
 
 <section id="days">
-  <h2><span class="num">03</span>逐日行程</h2>
+  <h2><span class="num">04</span>逐日行程</h2>
   <p class="sec-note">左边是时间，右边是内容。地点可以点开导航；每天顶部可以展开当日路线，或一键打开全天多点导航。</p>
   <div id="dayBox"></div>
 </section>
 
+<section id="spots">
+  <h2><span class="num">05</span>打卡点 · 去或不去</h2>
+  <p class="sec-note">这些<b>不占行程时间</b>，是每一区的顺路清单。走到那附近、时间还有，就照这张表挑；不喜欢转头就走，不影响主行程。</p>
+  <div class="vkey" id="vkey"></div>
+  <div id="spotBox"></div>
+</section>
+
 <section id="todo">
-  <h2><span class="num">04</span>待办清单</h2>
+  <h2><span class="num">06</span>待办清单</h2>
   <p class="sec-note">照顺序办。办完哪一项跟我说，我把它从这里拿掉。</p>
   <div class="card" id="todoBox"></div>
 </section>
 
 <section id="tips">
-  <h2><span class="num">05</span>实用贴士</h2>
+  <h2><span class="num">07</span>实用贴士</h2>
   <p class="sec-note">出门前扫一遍，路上遇到状况回来翻。</p>
   <div id="tipBox"></div>
 </section>
@@ -418,8 +470,8 @@ var DAYS = [
 {
   date:'2026-11-09', dow:'週一', c:'--d1',
   title:'落地台北 · 机场过夜',
-  sub:'红眼抵达，今晚不进城。目标只有一个：撑到明早的头班机捷。',
-  sleep:{ label:'桃园机场 T2 入境大厅（一楼）', q:APT2.q, warn:true },
+  sub:'红眼抵达，今晚不进城。直接上 T2 五楼非管制区的 24 小时休息区，那里有可平躺的躺椅。',
+  sleep:{ label:'桃园机场 T2 五楼 · 非管制区休息区', q:'桃園機場第二航廈 5樓', warn:true },
   nodes:['apt'],
   route:[{n:'桃园机场 T2', q:APT2.q}],
   items:[
@@ -429,22 +481,26 @@ var DAYS = [
     {t:'22:00', name:'抵达 桃园机场 第二航厦', q:APT2.q, hi:true, icon:'🛬',
       tipw:'登机证上写的是 T2，但航空公司偶尔会调整航厦。<b>出发前一天再确认一次</b>：星宇客服 +886-2-2791-1199。'},
     {t:'22:10', name:'入境 · 提领行李 · 出关', meta:'马来西亚护照免签停留 30 天。入境审查会问住哪、待几天，把订房截图放手边。'},
-    {t:'23:00', name:'在 T2 一楼入境大厅安顿', q:APT2.q,
-      tipw:'你 Excel 记的那几个躺椅区（3F 可收缩躺椅、A7–A8 的 70 度椅、D5R 躺椅）<b>全在出境管制区内，入境旅客进不去</b>。你们能待的是一楼入境大厅：硬椅子、通宵开灯、有清洁作业。',
-      tipg:'✅ T2 一楼入境层有<b>免费淋浴间，24 小时开放</b>（自备毛巾与盥洗用品）。<br>✅ 一楼有 24 小时便利商店。<br>🧥 冷气很强，外套先从行李里拿出来。<br>🔒 行李上锁、贵重物品贴身、两人轮流守。<br>📵 T2 旅客服务中心 05:30–24:00（03-398-3341），深夜没人。'},
-    {t:'', free:true, name:'尽量睡', meta:'明天是没睡饱的一天，行程已经排成室内、走路五分钟、随时能回房。'}
+    {t:'23:00', name:'直接上 T2 五楼「非管制区」休息区', q:'桃園機場第二航廈 5樓', hi:true,
+      tipg:'✅ <b>这一层是出关后就能进的，不需要登机证。</b>24 小时开放，有<b>可以平躺的躺椅</b>、插座、饮水机，旁边就是 24 小时便利商店（7-11／全家）与康是美。<br>🛗 从入境大厅搭电梯／手扶梯直接上 5F 就到，不用出航厦。<br>⏰ <b>提早去卡位</b>，躺椅数量有限。'},
+    {t:'23:10', name:'⚠️ 这些地方你们进不去（别浪费时间找）',
+      tipw:'网路上流传的过夜点<b>大多在出境管制区内，要有登机证过安检才能进</b> —— 你们 11/9 是入境，进不去：<br>· A／D 登机口附近的躺椅（含 A7–A8 的 70 度椅、D5R）<br>· B 登机口的绿植观景休息室<br>· 3F C5–C6 的近 180 度平躺椅<br>· <b>T3 更不可能</b>：只有北登机廊厅在 2025 年底启用，是管制区内的登机廊厅，报到目前还在 T2，主体要 2027 年底才完工。'},
+    {t:'', free:true, name:'想睡床的话（不用叫车）', q:'町草休行館 CHO Stay 桃園機場第二航廈5樓',
+      tipg:'🛏 <b>町・草休行馆 CHO Stay</b>：全台唯一的机场胶囊旅馆，就在 <b>T2 五楼南侧、同样是非管制区</b>，24 小时营业，男女分区，附淋浴与吹风机。过夜约 <b>NT$1,080／人起</b>（浮动价），也可以只买几小时。<br>两人约 NT$2,160 ≈ RM277 —— 换掉一夜硬躺、隔天不废掉半天，值不值得你们自己算。<b>要订的话建议出发前先线上订，别赌现场有位。</b>'},
+    {t:'', free:true, name:'过夜实用提醒',
+      tipw:'🚿 <b>免费淋浴间不是 24 小时</b>，各点开放时间不同（机场体验区那间是 06:00–22:00）。想洗澡就<b>出关后先去洗</b>，或等隔天早上，别拖到半夜。要自备毛巾。<br>🧥 冷气很强，外套先从行李里拿出来。<br>🔒 行李上锁、贵重物品贴身、两人轮流守。<br>📵 T2 旅客服务中心 05:30–24:00（03-398-3341），深夜没人。<br>🔌 插座会被抢，行动电源先充满。'}
   ]
 },
 {
   date:'2026-11-10', dow:'週二', c:'--d2',
   title:'台北车站生活圈 · 慢速开机',
-  sub:'全程室内、住处走路五分钟内、下午能补眠。没睡觉的一天只能这样排。',
+  sub:'全程室内、住处走路五分钟内、下午能补眠。今天不去西门町——后面还要在那里住五晚。',
   sleep:{ label:HOTEL_A.name, q:HOTEL_A.q },
-  nodes:['apt','tpe','cks','xmd'],
+  nodes:['apt','tpe','cks'],
   route:[
     {n:'桃园机场 T2', q:APT2.q},{n:'台北车站', q:'台北車站'},{n:'北门邮局', q:'臺北北門郵局'},
     {n:'台北地下街', q:'台北地下街'},{n:'Poshpacker', q:HOTEL_A.q},
-    {n:'中正纪念堂', q:'中正紀念堂'},{n:'西门町', q:'西門町'}
+    {n:'中正纪念堂', q:'中正紀念堂'}
   ],
   items:[
     {t:'06:04', name:'机场捷运 A13 → A1 台北车站', q:'機場捷運A13機場第二航廈站', hi:true, icon:'🚇',
@@ -478,19 +534,10 @@ var DAYS = [
     {t:'17:00', name:'中正纪念堂 + 自由广场', q:'中正紀念堂',
       hours:'纪念堂主体约 09:00–18:00 · 广场全天开放',
       meta:'捷运台北车站 → 中正纪念堂站，1 站。黄昏拍照最好看，广场很大很出片。'},
-    {t:'18:15', name:'移动到西门町', q:'西門町', meta:'捷运中正纪念堂 → 西门，或走路约 15 分钟。'},
-    {t:'18:30', name:'阿宗面线', q:'阿宗麵線 西門町',
-      tipw:'⚠️ <b>Anne 菇类过敏</b>：面线汤底可能含香菇，点之前一定要问。手机把下面那句「过敏中文卡」调出来给店员看。'},
-    {t:'19:00', name:'西门红楼 The Red House', q:'西門紅樓',
-      hours:'週二–週四、週日 11:00–21:00 · 週五、週六 11:00–22:00 · <b>週一休馆</b>',
-      meta:'八角＋十字造型的红砖古迹，外观免费，夜拍很好看。'},
-    {t:'19:40', name:'樱桃爷爷 · 车牌冰箱贴', q:'櫻桃爺爺 西門町',
-      meta:'NT$80 一个，买五送一。拿彩虹车牌去彩虹斑马线打卡。'},
-    {t:'20:10', name:'彩虹斑马线', q:'西門町彩虹地景 彩虹斑馬線'},
-    {t:'20:30', name:'文林文具', q:'文林文具行 西門町',
-      meta:'阿宗面线斜对面。明信片只要 NT$15–25；二楼一堆 NT$100–200 的小物（钥匙圈、积木明信片、木质书页灯），角落生物／千与千寻／Chiikawa／Snoopy 联名都找得到。'},
-    {t:'21:15', name:'一脆 鲜奶脆皮甜甜圈', q:'一脆鮮奶脆皮甜甜圈 西門町', meta:'1 个 NT$40 / 4 个 NT$150。糖粉有加奶粉。'},
-    {t:'21:45', name:'回住处 · 早睡', q:HOTEL_A.q},
+    {t:'18:30', name:'晚餐 · 台北车站／北门一带', q:'台北車站',
+      meta:'不用跑远，住处周边就有得吃。'},
+    {t:'20:00', name:'回住处 · 早睡', q:HOTEL_A.q, hi:true,
+      tipg:'✅ <b>今天刻意不去西门町。</b>你们 11/13 之后要在西门町住五个晚上，那些店随时补得到；今天没睡觉，早点收工比什么都值。'},
     {t:'', free:true, name:'今天週二的雷', meta:'小王煮瓜卤肉饭（华西街）週二公休——已经排到 11/13 了，别今天跑去。'}
   ]
 },
@@ -608,7 +655,8 @@ var DAYS = [
     {t:'19:00', name:'小王煮瓜（小王清汤瓜仔肉）', q:'小王煮瓜 華西街', hi:true,
       hours:'<b>週二公休</b>（今天週五，有开）',
       meta:'米其林必比登的卤肉饭，就在华西街夜市里。'},
-    {t:'20:30', name:'回西门町补货', q:'西門町', meta:'樱桃爷爷、文林文具二楼、光南（走回北车也行）。'}
+    {t:'20:30', name:'回西门町补货', q:'西門町',
+      meta:'樱桃爷爷（车牌冰箱贴）、文林文具二楼、彩虹斑马线、一脆甜甜圈——这些都在走路五分钟内，<b>不用今天一次做完</b>，接下来五个晚上随时补。完整清单见下面「打卡点 · 去或不去」。'}
   ]
 },
 {
@@ -824,6 +872,176 @@ var NODES = {
   gg: {x:418,y:606, n:'公馆 · 台大 · 师大', s:'', la:'l'}
 };
 
+/* =========================================================
+   台北捷运
+   ========================================================= */
+var S = {
+  jiantan:{x:400,y:88, n:'劍潭',        la:'l'},
+  shilin: {x:400,y:132,n:'士林',        la:'l'},
+  mzx:    {x:400,y:176,n:'民權西路',    la:'l', big:1},
+  shlian: {x:400,y:220,n:'雙連',        la:'l'},
+  zhshan: {x:400,y:264,n:'中山',        la:'l', big:1},
+  tpemain:{x:400,y:330,n:'台北車站',    la:'lt',big:1, bold:1},
+  ntuh:   {x:400,y:372,n:'台大醫院',    la:'r'},
+  cks:    {x:400,y:414,n:'中正紀念堂',  la:'l', big:1},
+  dongmen:{x:448,y:458,n:'東門',        la:'b', big:1},
+  dapark: {x:506,y:458,n:'大安森林公園',la:'t'},
+  daan:   {x:562,y:458,n:'大安',        la:'b', big:1},
+  xyah:   {x:618,y:492,n:'信義安和',    la:'r'},
+  t101:   {x:672,y:522,n:'台北101/世貿',la:'r'},
+  xiang:  {x:726,y:552,n:'象山',        la:'r'},
+  longshan:{x:252,y:330,n:'龍山寺',     la:'b'},
+  ximen:  {x:326,y:330,n:'西門',        la:'b', big:1},
+  shandao:{x:460,y:330,n:'善導寺',      la:'t'},
+  zxxs:   {x:520,y:330,n:'忠孝新生',    la:'t', big:1},
+  zxfx:   {x:580,y:330,n:'忠孝復興',    la:'t', big:1},
+  zxdh:   {x:640,y:330,n:'忠孝敦化',    la:'t'},
+  sysmh:  {x:700,y:330,n:'國父紀念館',  la:'t'},
+  cityhall:{x:760,y:330,n:'市政府',     la:'t'},
+  gongguan:{x:238,y:556,n:'公館',       la:'l'},
+  tpower: {x:272,y:514,n:'台電大樓',    la:'l'},
+  guting: {x:312,y:472,n:'古亭',        la:'l', big:1},
+  xnm:    {x:356,y:372,n:'小南門',      la:'l'},
+  beimen: {x:362,y:286,n:'北門',        la:'l'},
+  sjnj:   {x:470,y:264,n:'松江南京',    la:'r', big:1},
+  njfx:   {x:580,y:264,n:'南京復興',    la:'r', big:1},
+  zoo:    {x:820,y:624,n:'動物園',      la:'t'},
+  a13:    {x:130,y:664,n:'A13 第二航廈',la:'b'},
+  a12:    {x:236,y:664,n:'A12 第一航廈',la:'b'},
+  a1:     {x:430,y:664,n:'A1 台北車站', la:'b'}
+};
+
+var MRT = [
+  { id:'R', n:'淡水信義線', c:'#D90023', cd:'#FF6377', tag:'紅線',
+    seq:['jiantan','shilin','mzx','shlian','zhshan','tpemain','ntuh','cks','dongmen','dapark','daan','xyah','t101','xiang'],
+    head:{at:'jiantan',dx:0,dy:-30,t:'↑ 往淡水'},
+    use:[['劍潭','士林夜市就在這站，不是士林站 — 最多人搞錯的一站'],
+         ['士林','故宮：1 號出口轉紅 30 公車直達正館'],
+         ['雙連','寧夏夜市走路約 8 分'],
+         ['中山','赤峰街 5 號出口走 3 分 · 中山地下街 R 區'],
+         ['台北車站','11/10–11/13 的住處走 6 分 · 地下街 Y/K/Z 區 · 光南 · 墊腳石'],
+         ['中正紀念堂','紀念堂與自由廣場 · 離兩間住處都只有 1–2 站'],
+         ['東門','永康街 5 號出口 · 東門早市 1／2 號出口'],
+         ['台北101/世貿','101 免費拍照點'],
+         ['象山','2 號出口 → 象山親山步道，看日落']] },
+
+  { id:'BL', n:'板南線', c:'#0070BD', cd:'#5AAEEA', tag:'藍線',
+    seq:['longshan','ximen','tpemain','shandao','zxxs','zxfx','zxdh','sysmh','cityhall'],
+    head:{at:'longshan',dx:-30,dy:0,t:'←'}, tail:{at:'cityhall',dx:30,dy:0,t:'→'},
+    use:[['龍山寺','艋舺龍山寺 · 華西街夜市'],
+         ['西門','11/13–11/18 的住處走 5 分 · 西門町全區'],
+         ['忠孝新生','華山 1914 文創園區 1 號出口走 3 分'],
+         ['忠孝復興','台沖（送／取底片）2 號出口'],
+         ['忠孝敦化','Pick My CCD 8 號出口走 3 分'],
+         ['國父紀念館','松山文創園區 · 誠品生活松菸']] },
+
+  { id:'G', n:'松山新店線', c:'#008659', cd:'#4FC48A', tag:'綠線',
+    seq:['gongguan','tpower','guting','cks','xnm','ximen','beimen','zhshan','sjnj'],
+    head:{at:'gongguan',dx:-14,dy:24,t:'↙ 往新店'}, tail:{at:'sjnj',dx:34,dy:-16,t:'↗ 往松山'},
+    use:[['公館','台大 · 四家二手書店 · 師園鹽酥雞（4 號出口）'],
+         ['台電大樓','師大夜市'],
+         ['北門','日星鑄字行走 6 分 · 北門郵局 · 郵政博物館 · 迪化街走 12 分']] },
+
+  { id:'O', n:'中和新蘆線', c:'#F5A81C', cd:'#FFC257', tag:'橘線',
+    seq:['dongmen','zxxs','sjnj'], dash:[['sjnj','mzx']],
+    use:[['東門','跟紅線共構，永康街那站']] },
+
+  { id:'BR', n:'文湖線', c:'#B57A2A', cd:'#D9A860', tag:'棕線',
+    seq:['njfx','zxfx','daan'], dash:[['daan','zoo']],
+    use:[['動物園','貓空纜車＋台北動物園（機動備選；纜車週一停駛）']] },
+
+  { id:'A', n:'機場捷運', c:'#8246AF', cd:'#B48BE0', tag:'紫線 · 另一個系統，票價分開',
+    seq:['a13','a12'], dash:[['a12','a1']],
+    use:[['A13 機場第二航廈','你們起降的航廈'],
+         ['A1 台北車站','與捷運台北車站地下街連通，走路約 5–8 分。直達車 36–39 分／普通車 55 分，NT$150']] }
+];
+
+/* =========================================================
+   打卡点 · 去或不去
+   v: go 值得 / maybe 顺路才去 / skip 建议跳过 / check 先查
+   ========================================================= */
+var SPOTS = [
+{ area:'西門町 · 萬華', day:5, sub:'11/13–11/18 就住这里，五个晚上随时可以补',
+  items:[
+  {v:'go',   n:'櫻桃爺爺', q:'櫻桃爺爺 西門町', w:'车牌冰箱贴 NT$80、买五送一，是这趟最好带、最便宜的伴手礼。拿彩虹车牌去彩虹斑马线拍照。'},
+  {v:'go',   n:'文林文具', q:'文林文具行 西門町', w:'明信片 NT$15–25，全台北最便宜之一。二楼小物 NT$100–200，角落生物／千与千寻／Chiikawa／Snoopy 联名都有。在阿宗面线斜对面。'},
+  {v:'go',   n:'久大文具連鎖 西門町店', q:'久大文具 西門町', w:'本地学生在逛的文具店，比观光区便宜。週一–五 11:00–22:30、週六日 10:30–22:30。'},
+  {v:'go',   n:'彩虹斑馬線', q:'西門町彩虹地景 彩虹斑馬線', w:'就在路上，拍三分钟的事。配樱桃爷爷的车牌冰箱贴。'},
+  {v:'go',   n:'西門紅樓', q:'西門紅樓', w:'外观拍照五分钟就够；里面文创市集看兴趣。<u>週一休馆</u>。'},
+  {v:'maybe',n:'阿宗麵線', q:'阿宗麵線 西門町', w:'站着吃，五分钟解决，名气大但味道见仁见智。<u>⚠️ 汤底可能有香菇，Anne 一定要先问。</u>'},
+  {v:'maybe',n:'一脆 鮮奶脆皮甜甜圈', q:'一脆鮮奶脆皮甜甜圈 西門町', w:'NT$40／个、4 个 NT$150。台湾网友普遍说 <b>忠孝店（11/14 会经过）更好吃</b>，想吃留到那天。'},
+  {v:'maybe',n:'UNIQLO 西門店 · UT 現場印圖', q:'UNIQLO 西門店', w:'西门町限定图案，NT$590 一件，15–20 分钟印好。当纪念品不错，但会吃掉购物预算。'},
+  {v:'maybe',n:'誠品書店 西門店', q:'誠品書店 西門店', w:'专程为了 Nici 限定系列才值得；不然中山誠品品项更多。'},
+  {v:'maybe',n:'天天利美食坊', q:'天天利美食坊 西門町', w:'卤肉饭＋煎蛋很有名，但<b>常排很久</b>。Yoc 不爱排队 → 队伍夸张就换永和豆浆或路易氏。'},
+  {v:'maybe',n:'台湾麥當勞', q:'麥當勞 西門店', w:'double McChicken／signature 套餐 NT$90–140。只有想试台湾限定品项才值得占肚子。'},
+  {v:'skip', n:'愛吃不吃早餐屋 · 路易氏早餐吧', q:'愛吃不吃早餐屋 萬華', w:'都在万华车站那边，从西门走过去 15 分钟以上。<b>早餐不值得走这么远</b>，西门町本地早餐店很多。真要去就挑一天早上顺路。'}
+]},
+
+{ area:'台北車站 · 北門', day:2, sub:'11/10–11/13 住这里，走路 5 分钟内',
+  items:[
+  {v:'go',   n:'光南大批發 北車店', q:'光南大批發 台北站前店', w:'<b>这趟最该花时间的一家</b>：文具、零食、3C、二手 CD、化妆品、伴手礼全有，比西门町便宜一截。10:30–22:30，M8 出口。'},
+  {v:'go',   n:'墊腳石書店', q:'墊腳石圖書廣場 台北站前店', w:'跟光南同一区，书籍＋文具＋设计小物。10:30–22:30。'},
+  {v:'go',   n:'洪瑞珍三明治', q:'洪瑞珍三明治 台北車站', w:'芋泥肉松，便宜好吃，车站里就有。当伴手礼要注意<b>当天吃完</b>。'},
+  {v:'go',   n:'台鐵便當', q:'台鐵便當本舖 台北車站', w:'NT$100 上下，可以带上捷运吃。招牌往左走、全家对面。'},
+  {v:'go',   n:'台北地下街 Y／K／Z／R 區', q:'台北地下街', w:'<b>下雨天的万用备案</b>。Y 区店最全，K 区动漫周边，R 区直通中山商圈。跟着地上颜色走不会迷路。'},
+  {v:'maybe',n:'香帥蛋糕', q:'香帥蛋糕 台北車站', w:'芋泥卷有名，但<b>要冷藏、不耐放</b>。要买就 11/17 晚上买，别提早。'},
+  {v:'maybe',n:'100 Life 日本百元店', q:'100Life 台北地下街', w:'全店 NT$49。逛地下街时顺路，专程去不值得。'},
+  {v:'maybe',n:'北門鳳李冰', q:'北門鳳李冰', w:'老字号凤梨／李子冰。11/11 从日星走回北门顺路，天冷就跳过。'}
+]},
+
+{ area:'大稻埕 · 迪化街 · 赤峰街', day:3, sub:'11/11 一整天都在这一带',
+  items:[
+  {v:'go',   n:'SNAPPP 寫真私館（赤店）', q:'SNAPPP 寫真私館 赤峰街', w:'底片相机选物店，有老相机、底片，也能冲洗。<b>玩 CCD 的话这家是重点</b>。14:00–19:00，週一休。'},
+  {v:'go',   n:'你好我好', q:'你好我好 迪化街', w:'原创／原住民手作小物，东西有质感，适合买给自己。'},
+  {v:'go',   n:'tartclub 蛋撻俱樂部', q:'tartclub 蛋撻俱樂部 赤峰街', w:'一颗 NT$60，店很好拍。下午逛累了的补给点。'},
+  {v:'maybe',n:'元氣毛孩', q:'元氣毛孩 迪化街', w:'满店猫狗周边，店里养着三只腊肠狗。<b>不养宠物的话是来看狗的</b>，五分钟。'},
+  {v:'maybe',n:'米朗琪咖啡館', q:'米朗琪咖啡館 中山', w:'松饼很有名，但<b>假日常排很久</b>。Yoc 不爱排队 → 有位子再进，不然去 tartclub 或面线町。'},
+  {v:'maybe',n:'麵線町 · bog tea house 卜卜商店', q:'麵線町 赤峰街', w:'赤峰街的备选餐食／咖啡，Google 4.5★。逛到饿了再说。'},
+  {v:'maybe',n:'台北您好百貨（古著）', q:'台北您好百貨 赤峰街', w:'vintage 选物，拍照好看。买不买看眼缘。'},
+  {v:'maybe',n:'大稻埕碼頭貨櫃市集', q:'大稻埕碼頭貨櫃市集', w:'<b>来看夕阳就好，别在这里吃</b>。网友评价东西偏贵没特色，二楼河景位子很难抢，提早 20 分钟上去。'}
+]},
+
+{ area:'永康街 · 東門', day:9, sub:'11/17 上午',
+  items:[
+  {v:'go',   n:'來好 lai hao', q:'來好lai hao 永康街', w:'两层楼、品项最多的伴手礼店，<b>一次买齐最省时间</b>。09:30–21:30 每天开。'},
+  {v:'go',   n:'厚里', q:'厚里 永康街', w:'设计师原创小物，不是大批量生产那种。明信片 NT$40–60（<u>店里不卖邮票</u>）。'},
+  {v:'go',   n:'白水豆花', q:'白水豆花 永康街', w:'豆花超滑顺，桌上免费黑糖水。<b>只收现金</b>；<u>週四公休</u>；配料会加香菜，不吃要先讲。'},
+  {v:'go',   n:'甜滿牛軋餅', q:'甜滿牛軋餅 永康街', w:'葱油味浓、饼干比别家厚，NT$220 一盒。<b>只收现金</b>。适合当伴手礼。'},
+  {v:'go',   n:'50 嵐', q:'50嵐 永康街', w:'四季春＋珍波椰 / 珍珠奶绿。NT$50–70，满 50 免费加料。便宜又好喝，别只喝一次。'},
+  {v:'maybe',n:'Bao Maison · littdlework · garden', q:'永康街', w:'三家小型文创／刺绣／杂货，都在同一段路上，一起逛 30 分钟就够。<u>garden 的 IP 玩偶要自己判断正品。</u>'},
+  {v:'check',n:'LiMA 原選旗艦店', q:'LiMA原選 永康街', w:'台湾原住民元素选物店。<b>你 Excel 注明暂时歇业</b> —— 出发前一天在 Google 地图查状态，别白跑。'},
+  {v:'skip', n:'永康牛肉麵', q:'永康牛肉麵', w:'肥肠和牛肉是好，但<b>价格是普通牛肉面店两倍以上</b>，而且是川味红烧 —— Yoc 不爱大陆菜系。跳过它省的钱够买两件上衣。'},
+  {v:'skip', n:'周杰倫家（和平大苑）', q:'和平大苑 台北', w:'<b>就是一栋住宅大楼</b>，站在外面拍不到任何东西，还要多走 15 分钟。这种打卡点纯粹是浪费腿力。'}
+]},
+
+{ area:'信義 · 東區 · 大安', day:6, sub:'11/14 一整天',
+  items:[
+  {v:'go',   n:'誠品生活松菸', q:'誠品生活松菸店', w:'特典冰箱贴、台啤小酒杯、手帕、袜子、明信片 —— 你清单上的文创品这里最集中。'},
+  {v:'go',   n:'台灣人ㄟ脆皮鮮奶甜甜圈 忠孝店', q:'台灣人ㄟ脆皮鮮奶甜甜圈 忠孝店', w:'台湾网友说<b>比西门町那家好吃</b>。NT$25 一个、6 个 NT$150。11:00–19:00。'},
+  {v:'go',   n:'台北 101 免費拍照點', q:'台北101', w:'4 楼都会广场、市府路人行道、信义威秀前、松智路口 —— 不用买观景台票也拍得到 101 全景。'},
+  {v:'maybe',n:'東區地下街 · 忠孝商圈', q:'東區地下街', w:'潮流服饰小店多，但风格跟赤峰街重叠。<b>赤峰街（11/11）已经买够的话这里可以只走马看花</b>。'},
+  {v:'maybe',n:'Bar Pine · Bar Between', q:'Bar Pine 台北', w:'你 Excel 上的两家大安酒吧。11/14 从信义回程顺路，看当晚还剩多少体力再决定。'},
+  {v:'skip', n:'Stüssy Taipei', q:'Stussy Taipei', w:'台北限定 hoodie／Tee，但 <b>Tee 就要 NT$1,980</b> —— 一件吃掉你购物预算的六分之一到四分之一。<b>想买就要先砍掉别的</b>，别顺手买。'}
+]},
+
+{ area:'公館 · 師大', day:9, sub:'11/17 下午到晚上',
+  items:[
+  {v:'go',   n:'茉莉二手書店 公館店', q:'茉莉二手書店 公館店', w:'欧美与华语老牌都多，附近还有专门的影音馆卖二手 CD／DVD／黑胶。价格透明。'},
+  {v:'go',   n:'臺大農產品展示中心', q:'臺大農產品展示中心', w:'台大自产鲜奶＋肉松包。<b>鲜奶常限量、卖完就没有</b> —— 想喝就把这项提到上午。'},
+  {v:'go',   n:'師園鹽酥雞', q:'師園鹽酥雞', w:'素菜＋甜不辣是必点。公馆老字号。'},
+  {v:'maybe',n:'雅博客 · 雅舍 · 女書店', q:'雅博客二手書店 公館', w:'三家都在公馆步行范围内。<b>女书店</b>是华文世界第一家女性主义书店，就算不买也值得进去看一眼。'}
+]},
+
+{ area:'🍸 酒吧 · 住处走路可到', day:0, sub:'两段住宿各自的选项，都不用搭车',
+  items:[
+  {v:'go',   n:'Chance Cafe & Bar 勸世吧', q:'Chance Cafe Bar 勸世吧 台北市萬華區成都路27巷10號', w:'<b>萬華區成都路 27 巷 10 號 —— 跟你们 11/13 之后的旅馆同一条巷子（27 巷 6 号），走路一分钟。</b>每日新鲜水果创意调酒。週五六 11:00–03:00、週一至四及日 11:00–02:00。'},
+  {v:'go',   n:'ONCE Cafe & Bar 無心戒酒互助會 西寧分會', q:'ONCE Cafe Bar 台北市萬華區西寧南路82巷2號', w:'萬華區西寧南路 82 巷 2 號，西门站 1／6 号出口走 3 分。琴酒调酒＋招牌提拉米苏。一～四、日 10:30–01:00；五六 10:30–03:00。'},
+  {v:'go',   n:'Nonsense Cafe & Bar 無心戒酒互助會 武昌分會', q:'Nonsense Cafe Bar 台北市萬華區武昌街二段100號', w:'萬華區武昌街二段 100 號 2 樓，西门站 6 号出口走 5 分。punch 大缸酒、各国精酿，<b>可以自带外食</b>，LGBT 友善。五六 15:30–04:00；日～四 15:30–03:00。'},
+  {v:'maybe',n:'Geography Bar', q:'Geography Bar 台北市萬華區西寧南路179號', w:'萬華區西寧南路 179 號，16:30–01:30。以台湾各地水果与在地文化为主题的调酒，题材有意思。'},
+  {v:'maybe',n:'台北車站一帶：Bitter Burro 苦甜酒館 · Jup Jup 精釀 · The 58 Bar', q:'Bitter Burro 台北車站', w:'11/10–11/13 住台北车站时的选项（The 58 Bar 从北门站走约 10 分）。<b>这几家的地址与营业时间我没能完整核实，出门前在 Google 地图确认一下再走。</b>'}
+]}
+];
+
 /* 待办 */
 var TODO = [
   { h:'出发前 · 一定要做', items:[
@@ -836,10 +1054,11 @@ var TODO = [
     '出发前一天查 <b>LiMA 原选旗舰店</b>（永康街）是否已恢复营业——你 Excel 注明暂时歇业。',
     '准备现金：白水豆花、甜满牛轧饼<b>只收现金</b>，夜市摊也多半收现金。',
     '盖章用的<b>空白本子</b>一本（无格线的最好用）。',
-    '打包：薄外套 / 风衣（山上低 5–8°C）、轻便雨衣、防滑好走的鞋、行动电源、转接头（台湾是 110V，插头与马来西亚不同）。'
+    '打包：薄外套 / 风衣（山上低 5–8°C）、轻便雨衣、防滑好走的鞋、行动电源、转接头（台湾是 110V，插头与马来西亚不同）。',
+    '<b>机场过夜要带的</b>：毛巾（淋浴间不提供）、眼罩耳塞、薄外套（冷气强）、行李锁。插座会被抢，行动电源先充满。'
   ]},
   { h:'保持弹性 · 随时可以改', items:[
-    '<b>11/9 的住宿</b>：目前是睡桃园 T2 入境大厅。如果改主意要加订一晚，11/10 的行程可以整个换成正常强度。',
+    '<b>11/9 的住宿</b>：目前是睡 T2 五楼非管制区的免费休息区（有平躺躺椅）。想睡床的话，同一层的胶囊旅馆<b>町・草休行馆</b>约 NT$1,080／人起，建议线上先订。',
     '<b>购物额度</b>：每人 RM2,000–2,500 扣掉必要开销后约剩 NT$7,500–11,400。清单全买会超支，见下方「钱 · 预算怎么分配」的取舍建议。'
   ]},
   { h:'到台湾后 · 第一天就办', items:[
@@ -1051,6 +1270,110 @@ function pad(n){ return n<10 ? '0'+n : ''+n; }
   });
 })();
 
+/* ---- 捷运图 ---- */
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  var linesEl=document.getElementById('mrtLines'),
+      stnEl=document.getElementById('mrtStations'),
+      leg=document.getElementById('mrtLegend'),
+      guide=document.getElementById('mrtGuide');
+  function col(l){ return 'var(--mrt-'+l.id+')'; }
+  function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); return e; }
+
+  var drawn=[];
+  MRT.forEach(function(l){
+    var g=el('g',{'data-line':l.id});
+    var d=l.seq.map(function(k,i){ return (i?'L':'M')+S[k].x+','+S[k].y; }).join(' ');
+    var p=el('path',{d:d,stroke:col(l),'stroke-width':6.5,'stroke-opacity':.9});
+    g.appendChild(p);
+    (l.dash||[]).forEach(function(pair){
+      var a=S[pair[0]], b=S[pair[1]];
+      var mid = (pair[0]==='daan') ? ' L640,600' : '';
+      g.appendChild(el('path',{d:'M'+a.x+','+a.y+mid+' L'+b.x+','+b.y,
+        stroke:col(l),'stroke-width':5,'stroke-dasharray':'2 11','stroke-opacity':.75}));
+    });
+    [l.head,l.tail].forEach(function(h){
+      if(!h) return;
+      var s=S[h.at];
+      var t=el('text',{x:s.x+h.dx,y:s.y+h.dy,'class':'mrt-cont','text-anchor':h.dx<0?'end':(h.dx>0?'start':'middle')});
+      t.textContent=h.t; g.appendChild(t);
+    });
+    linesEl.appendChild(g); drawn.push({l:l,g:g});
+  });
+
+  // 分隔线 + 机捷说明
+  var dv=el('path',{d:'M56,614 L844,614',stroke:'var(--line)','stroke-width':1,'stroke-dasharray':'4 5'});
+  linesEl.appendChild(dv);
+  var dt=el('text',{x:56,y:636,'class':'mrt-sec'}); dt.textContent='機場捷運（獨立系統，票價與捷運分開計算）'; linesEl.appendChild(dt);
+
+  var stnG=el('g',{});
+  Object.keys(S).forEach(function(k){
+    var s=S[k], g=el('g',{});
+    g.appendChild(el('circle',{cx:s.x,cy:s.y,r:s.big?7:5,fill:'var(--card)',stroke:'var(--ink)','stroke-width':s.big?2.6:2}));
+    var lx=s.x,ly=s.y+4,an='start';
+    if(s.la==='l'){ lx=s.x-13; an='end'; }
+    else if(s.la==='r'){ lx=s.x+13; }
+    else if(s.la==='t'){ lx=s.x; ly=s.y-14; an='middle'; }
+    else if(s.la==='b'){ lx=s.x; ly=s.y+22; an='middle'; }
+    else if(s.la==='lt'){ lx=s.x-13; ly=s.y-12; an='end'; }
+    var t=el('text',{x:lx,y:ly,'class':'mrt-lab'+(s.bold?' b':''),'text-anchor':an});
+    t.textContent=s.n; g.appendChild(t);
+    stnG.appendChild(g);
+  });
+  stnEl.appendChild(stnG);
+
+  // legend
+  var active=null;
+  MRT.forEach(function(l){
+    var b=document.createElement('button');
+    b.className='lg'; b.type='button'; b.setAttribute('aria-pressed','false');
+    b.style.setProperty('--c', col(l));
+    b.innerHTML='<i></i>'+l.n;
+    b.addEventListener('click',function(){
+      active = (active===l.id) ? null : l.id;
+      [].forEach.call(leg.children,function(x,j){ x.setAttribute('aria-pressed', MRT[j].id===active ?'true':'false'); });
+      drawn.forEach(function(o){ o.g.classList.toggle('dim', !!active && o.l.id!==active); });
+    });
+    leg.appendChild(b);
+  });
+
+  // guide
+  var h='<div class="card">';
+  MRT.forEach(function(l){
+    h+='<div class="mrt-grp" style="--c:'+col(l)+'"><h4><i></i>'+l.n+' <span>'+l.tag+'</span></h4><ul class="stn">';
+    l.use.forEach(function(u){
+      h+='<li><b><a class="nav" href="'+navUrl('捷運'+u[0].replace(/^A\d+\s*/,'')+'站 台北')+'" target="_blank" rel="noopener">'+u[0]+'</a></b><em>'+u[1]+'</em></li>';
+    });
+    h+='</ul></div>';
+  });
+  h+='<div class="tip g" style="margin-top:14px">🎫 <b>一张悠遊卡全部搞定</b>：台北捷运、公车、机场捷运、超商都能刷，捷运刷卡还有折扣。两人各买一张，储值 NT$500 起。<br>🚫 <b>捷运车厢与付费区内禁止饮食</b>，连喝水都会罚钱 —— 手摇饮进站前先喝完或收好。</div>';
+  h+='<div class="tip w" style="margin-top:8px">⚠️ <b>士林夜市在「劍潭站」，不在「士林站」。</b>这是最多观光客搞错的一站。11/15 白天去故宫才是士林站（转红 30 公车）。</div></div>';
+  guide.innerHTML=h;
+})();
+
+/* ---- 打卡点 ---- */
+(function(){
+  var V={ go:{i:'🟢',t:'值得去'}, maybe:{i:'🟡',t:'顺路才去'}, skip:{i:'🔴',t:'建议跳过'}, check:{i:'⚠️',t:'出发前先查'} };
+  document.getElementById('vkey').innerHTML =
+    Object.keys(V).map(function(k){ return '<span>'+V[k].i+' '+V[k].t+'</span>'; }).join('');
+  var h='';
+  SPOTS.forEach(function(a,ai){
+    h+='<div class="card" id="sp-'+a.day+'-'+ai+'">'+
+       '<div class="area-h">'+(a.day?'DAY '+a.day+' · ':'')+a.sub+'</div>'+
+       '<div class="card-t" style="margin-bottom:6px">'+a.area+'</div>';
+    a.items.forEach(function(s){
+      h+='<div class="sp">'+
+         '<div class="v" title="'+V[s.v].t+'">'+V[s.v].i+'</div>'+
+         '<div class="n"><a class="nav" href="'+navUrl(s.q)+'" target="_blank" rel="noopener">'+s.n+'</a></div>'+
+         '<div class="w">'+s.w+'</div>'+
+         '</div>';
+    });
+    if(a.day) h+='<a class="dayjump" href="#d'+a.day+'">↑ 回到 DAY '+a.day+' 的行程</a>';
+    h+='</div>';
+  });
+  document.getElementById('spotBox').innerHTML=h;
+})();
+
 /* ---- 已确认 ---- */
 (function(){
   var box = document.getElementById('bookedBox');
@@ -1097,11 +1420,14 @@ function pad(n){ return n<10 ? '0'+n : ''+n; }
 
   html += '<div class="card"><div class="card-h"><div class="card-t">11 月 9 日 · 桃园机场过夜 <span class="b b-must">无订房</span></div><div class="card-k">STAY 0</div></div>'+
     '<dl class="kv">'+
-    '<dt>地点</dt><dd>桃园国际机场 第二航厦 <b>一楼入境大厅</b><br><a class="nav" href="'+navUrl(APT2.q)+'" target="_blank" rel="noopener">导航到这里</a></dd>'+
+    '<dt>地点</dt><dd>桃园国际机场 第二航厦 <b>五楼 · 非管制区休息区</b><br><a class="nav" href="'+navUrl('桃園機場第二航廈 5樓')+'" target="_blank" rel="noopener">导航到这里</a></dd>'+
     '<dt>时间</dt><dd>11/9 约 23:00 → 11/10 约 06:00</dd>'+
+    '<dt>有什么</dt><dd>24 小时开放 · <b>可平躺的躺椅</b> · 插座 · 饮水机 · 旁边有 24 小时便利商店</dd>'+
     '<dt>服务台</dt><dd><a class="tel" href="tel:+88633983341">+886-3-398-3341</a> <em style="color:var(--ink3);font-size:12px">05:30–24:00</em></dd>'+
     '</dl>'+
-    '<div class="tip w" style="margin-top:10px">你 Excel 里记的 3F 可收缩躺椅、A7–A8 的 70 度椅、D5R 躺椅，<b>全部在出境管制区内，入境旅客进不去</b>。可用的是一楼入境大厅（硬椅子、通宵开灯）与<b>一楼 24 小时免费淋浴间</b>（自备毛巾）。</div>'+
+    '<div class="tip g" style="margin-top:10px">✅ <b>T2 五楼这一层是「非管制区」，出关后不需要登机证就能进。</b>躺椅数量有限，出关后直接上去卡位。</div>'+
+    '<div class="tip w" style="margin-top:8px">⚠️ 网路上流传的 A／D 登机口躺椅、B 登机口观景休息室、3F C5–C6 平躺椅，<b>全在出境管制区内，入境旅客进不去</b>；T3 目前只有管制区内的北登机廊厅启用，报到还在 T2。<br>🚿 <b>免费淋浴间不是 24 小时</b>（各点不同，机场体验区那间 06:00–22:00），要洗就出关后先洗，自备毛巾。</div>'+
+    '<div class="tip g" style="margin-top:8px">🛏 <b>想睡床、又不想叫车</b>：同一层（T2 5F 南侧、一样非管制区）有胶囊旅馆<b>町・草休行馆 CHO Stay</b>，24 小时营业、男女分区、附淋浴，过夜约 <b>NT$1,080／人起</b>（浮动价），也可按小时买。建议线上先订，别赌现场有位。 <a class="nav" href="'+navUrl('町草休行館 CHO Stay 桃園機場第二航廈5樓')+'" target="_blank" rel="noopener">位置</a></div>'+
     '</div>';
 
   html += '<div class="card"><div class="card-h"><div class="card-t">KLOOK · 北投 + 阳明山芒草一日游 <span class="b b-ok">已订</span></div><div class="card-k">TOUR 1</div></div>'+
@@ -1142,9 +1468,13 @@ function pad(n){ return n<10 ? '0'+n : ''+n; }
         '</div>'+
       '</div></div>';
 
+    var areas = SPOTS.filter(function(a){ return a.day===idx; });
     html += '<div class="routebtns">'+
       '<button class="rb" type="button" data-toggle="'+idx+'">🗺 当日路线</button>'+
       (d.route && d.route.length>1 ? '<a class="rb primary" href="'+multiUrl(d.route.map(function(r){return r.q;}))+'" target="_blank" rel="noopener">🧭 全天多点导航</a>' : '')+
+      areas.map(function(a){
+        return '<a class="rb" href="#sp-'+idx+'-'+SPOTS.indexOf(a)+'">📍 '+a.area+' 顺路清单 '+a.items.length+'</a>';
+      }).join('')+
       '</div>';
 
     if(d.route && d.route.length){
