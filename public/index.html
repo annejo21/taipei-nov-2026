@@ -544,7 +544,7 @@ var DAYS = [
       tipw:'🚶 <b>台北车站地下街凌晨会关闭，必须走地面</b>：出站后沿忠孝西路往东，转重庆南路，约 6–8 分钟。这一段是主干道、24 小时便利商店密集，凌晨仍有人。'},
     {t:'00:45', nd:true, name:'✅ 入住 台北鉑泊客女士馆', q:HOTEL_A.q, hi:true, icon:'🛏',
       meta:'中正区重庆南路一段 39 号 1 楼 · +886-2-2375-5555',
-      tipw:'🔴 <b>这是现在最关键的一件事：一定要事先告知柜台你们大约凌晨 00:45 抵达。</b>青旅柜台通常不是 24 小时，没讲的话有两个风险——①没人开门；②被当成 no-show 把房间放掉。<br>出发前用 email／WhatsApp／订房平台留言写清楚：<b>“We will arrive around 00:45 on 10 Nov (late-night arrival on the 9 Nov booking). Please confirm late check-in.”</b> 拿到回覆再截图存手机。'},
+      tipg:'✅ <b>已向旅馆确认：柜台 24 小时，深夜入住没问题。</b>（email 回覆记得留在手机里，万一现场换班的人不知情可以直接给看。）'},
     {t:'', free:true, name:'睡饱', meta:'明天是正常强度的一天，不用像以前那样留补眠时段了。'}
   ]
 },
@@ -1194,7 +1194,6 @@ O17:['O17','Y18'],  Y17:['Y17'],        Y20:['Y20'],       A3:['A3']
 /* 待办 */
 var TODO = [
   { h:'出发前 · 一定要做', items:[
-    '🔴 <b>跟鉑泊客女士馆确认深夜入住</b> —— 11/9 的房，实际进门是 11/10 凌晨约 00:45。柜台不是 24 小时的话，没讲清楚可能没人开门，或被当 no-show 把房放掉。写信或平台留言，拿到回覆截图存手机。<b>这条最优先。</b>',
     '线上填好台湾<b>入境登记表 TWAC</b>（两人各一份），完成后截图存手机；免签停留 30 天。',
     '确认两本护照效期在 <b>2027 年 5 月 18 日之后</b>（入境日起算满 6 个月）。',
     '把回程 JX725 的电子机票截图存到手机——入境审查可能会问。',
@@ -1632,10 +1631,9 @@ function pad(n){ return n<10 ? '0'+n : ''+n; }
     '<dt>晚数</dt><dd>4 晚 · 1 间房</dd>'+
     '<dt>地址</dt><dd>'+HOTEL_A.addr+'<br><a class="nav" href="'+navUrl(HOTEL_A.q)+'" target="_blank" rel="noopener">导航到这里</a></dd>'+
     '<dt>电话</dt><dd><a class="tel" href="tel:+886223755555">'+HOTEL_A.tel+'</a></dd>'+
+    '<dt>柜台</dt><dd><b>24 小时</b> · 深夜入住已确认</dd>'+
     '<dt>位置</dt><dd>台北车站步行约 6 分钟（M8 出口）· 北门站更近</dd>'+
-    '</dl>'+
-    '<div class="tip w" style="margin-top:10px">🔴 <b>必办：事先告知深夜抵达。</b>你们 11/9 的房，实际进门是 11/10 凌晨约 00:45。青旅柜台通常不是 24 小时——没讲清楚的话，可能没人开门，或被当成 no-show 把房放掉。<br>出发前留言：<b>“We will arrive around 00:45 on 10 Nov (late-night arrival on the 9 Nov booking). Please confirm late check-in.”</b> 拿到回覆截图存手机。</div>'+
-    '</div>';
+    '</dl></div>';
 
   html += '<div class="card"><div class="card-h"><div class="card-t">'+HOTEL_B.name+'</div><div class="card-k">STAY 2</div></div>'+
     '<dl class="kv">'+
